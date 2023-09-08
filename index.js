@@ -1803,50 +1803,81 @@ const Footer = () => {
         </div>
         <div className="About">
           <h3 className="text">ABOUT KHAOJI</h3>
-          <p className="text">About</p>
-          <p className="text">Careers</p>
-          <p className="text">Team</p>
-          <p className="text">KhaoJi One</p>
-          <p className="text">KhaoJi Instamart</p>
-          <p className="text">KhaoJi Genie</p>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">About</p>
+          </a>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">Careers</p>
+          </a>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">Team</p>
+          </a>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">KhaoJi One</p>
+          </a>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">KhaoJi Instamart</p>
+          </a>
+          <a className="anc" href="#" target="_blank">
+            <p className="text">KhaoJi Genie</p>
+          </a>
         </div>
         <div className="auth">
           <div className="contact">
-            <h3 className="text">Contact us</h3>
-            <p className="text">Help & Support</p>
-            <p className="text">Partner with us</p>
-            <p className="text">Ride with us</p>
+            <h3 className="text">CONTACT US</h3>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Help & Support</p>
+            </a>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Partner with us</p>
+            </a>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Ride with us</p>
+            </a>
           </div>
           <div className="legal">
-            {" "}
             <h3 className="text">Legal</h3>
-            <p className="text">Terms & Condition</p>
-            <p className="text">Cookie Policy</p>
-            <p className="text">Privacy Policy</p>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Terms & Condition</p>
+            </a>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Cookie Policy</p>
+            </a>
+            <a className="anc" href="#" target="_blank">
+              <p className="text">Privacy Policy</p>
+            </a>
           </div>
         </div>
         <div className="links">
           <h3>SOCIAL LINKS</h3>
           <div className="social">
-            <a href="www.linkedin.com">
+            <a href="https://www.linkedin.com/" target="_blank">
               <img className="logs" src={linkedin} alt="linkedin" />
             </a>
-            <a href="www.instagram.com">
+            <a href="https://www.instagram.com/" target="_blank">
               <img className="logs" src={instagram} alt="instagram" />
             </a>
-            <a href="www.twitter.com">
+            <a href="https://www.twitter.com/" target="_blank">
               <img className="logs" src={twitter} alt="twitter" />
             </a>
-            <a href="www.youtube.com">
+            <a href="https://www.youtube.com/" target="_blank">
               <img className="logs" src={youtube} alt="youtube" />
             </a>
-            <a href="www.facebook.com">
+            <a href="https://www.facebook.com/" target="_blank">
               <img className="logs" src={facebook} alt="facebook" />
             </a>
           </div>
-          <div className="social-img"></div>
+          <div className="social-img">
+            <a href="https://www.playstore.com/" target="_blank">
+              <img className="biglogs" src={play_store} alt="Play Store" />
+            </a>
+            <a href="https://www.appstore.com/" target="_blank">
+              <img className="biglogs" src={app_store} alt="App Store" />
+            </a>
+          </div>
         </div>
       </div>
+      className="anc"
     </>
   );
 };
