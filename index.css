@@ -76,7 +76,7 @@
   transition: all 0.1s;
 }
 .searchbar > input:hover {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
 }
 .searchbar > input::placeholder {
   font-size: 1.2rem;
@@ -227,4 +227,17 @@
 .anc:hover {
   transform: scaleY(1.1);
   color: crimson;
+}
+.filter-btn {
+  margin-right: 42%;
+  color: #fff;
+  cursor: pointer;
+  background-color: #dc143c;
+  border: none;
+  border-radius: 20px;
+  width: 10.5%;
+  margin-left: 2%;
+  padding: 1%;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #00000075;
 }
