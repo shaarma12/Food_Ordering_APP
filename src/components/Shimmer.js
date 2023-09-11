@@ -3,12 +3,51 @@ const Shimmer = () => {
   return (
     <>
       <div className="shimmer">
-        <div className="inner"></div>
-        <div className="inner"></div>
-        <div className="inner"></div>
-        <div className="inner"></div>
-        <div className="inner"></div>
-        <div className="innner"></div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
+        <div className="inner">
+          <div className="ou"></div>
+          <div className="in"></div>
+          <div className="in"></div>
+        </div>
       </div>
     </>
   );
