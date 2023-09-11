@@ -36,7 +36,6 @@
 }
 #nav > ul > a :hover {
   border-bottom: 2px solid crimson;
-  transform: scaleY(1.1);
   color: crimson;
 }
 #nav > ul > a[href="#1"] {
@@ -57,15 +56,20 @@
 .cart-img:hover {
   border-bottom: 2px solid black;
 }
-.cart-user {
-  width: 3vmax;
-  height: 3vmax;
-}
 .user-img {
-  padding: 25%;
-  margin-top: 25%;
-  border-radius: 6px;
+  width: 6vmax;
+  padding: 1vmax;
+  border-radius: 28px;
+  margin-left: -19%;
+  font-size: 1.1vmax;
   cursor: pointer;
+  transition: all 0.3s;
+}
+.user-img:hover {
+  transform: scaleY(1.1);
+  background-color: crimson;
+  color: white;
+  border: none;
 }
 .searchbar {
   display: flex;
@@ -247,10 +251,36 @@
   transition: all 0.3s;
   box-shadow: 0 0 10px #00000075;
 }
-.shimmer {
+.inner {
+  background-color: rgb(237, 240, 240);
+  width: 20%;
+  height: 18vmax;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.inner-div {
-  background-color: rgb(213, 217, 217);
-  width: 5%;
-  height: 10%;
+.shimmer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+  align-items: center;
+  margin: 5vmax;
+}
+.in {
+  width: 60%;
+  height: 5%;
+  background-color: rgb(229, 226, 226);
+  margin: 5%;
+  border-radius: 25px;
+}
+.ou {
+  width: 80%;
+  height: 50%;
+  background-color: rgb(229, 226, 226);
+  margin: 5%;
+  border-radius: 15px;
 }

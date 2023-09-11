@@ -36,7 +36,7 @@ const Body = () => {
               const change = rest.filter((i) => {
                 return i.info.avgRating > 4;
               });
-              setRest(change);
+              setFilterlist(change);
             }}
             className="filter-btn"
           >
