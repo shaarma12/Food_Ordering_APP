@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Logoimg from "../../images/Logoimg.png";
 import cart from "../../images/cart.png";
 import user from "../../images/user.png";
 
 const Header = () => {
+  const [title, setTitle] = useState("Login");
   return (
     <>
       <div id="heading">
@@ -40,9 +42,14 @@ const Header = () => {
           {/* user icon */}
 
           <div id="user">
-            <a href="#" target="_blank">
-              <img className="cart-user" src={user} alt="user" />
-            </a>
+            <button
+              onClick={() => {
+                title === "Login" ? setTitle("Logout") : setTitle("Login");
+              }}
+              className="user-img"
+            >
+              {title}
+            </button>
           </div>
         </div>
       </div>

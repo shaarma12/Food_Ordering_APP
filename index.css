@@ -61,6 +61,12 @@
   width: 3vmax;
   height: 3vmax;
 }
+.user-img {
+  padding: 25%;
+  margin-top: 25%;
+  border-radius: 6px;
+  cursor: pointer;
+}
 .searchbar {
   display: flex;
   justify-content: flex-end;
@@ -240,4 +246,11 @@
   padding: 1%;
   transition: all 0.3s;
   box-shadow: 0 0 10px #00000075;
+}
+.shimmer {
+}
+.inner-div {
+  background-color: rgb(213, 217, 217);
+  width: 5%;
+  height: 10%;
 }
