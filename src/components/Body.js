@@ -16,18 +16,16 @@ const Body = () => {
     );
     const response = await url.json();
     setRest(
-      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilterlist(
-      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
-
-  return rest.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (rest?.length === 0) return <Shimmer />;
+  return (
     <>
       <div className="body">
         <div className="searchbar">

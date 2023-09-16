@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logoimg from "../../images/Logoimg.png";
 import cart from "../../images/cart.png";
-import user from "../../images/user.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
@@ -10,24 +10,34 @@ const Header = () => {
       <div id="heading">
         {/* Logo */}
         <div id="logo">
-          <img className="logo-img" src={Logoimg} alt="Main Logo" />
+          <Link to="/">
+            <img className="logo-img" src={Logoimg} alt="Main Logo" />
+          </Link>
         </div>
 
         {/* Nav Links */}
         <div id="nav">
           <ul>
-            <a href="#" target="_blank">
-              <li>Home</li>
-            </a>
-            <a href="#" target="_blank">
-              <li>About</li>
-            </a>
-            <a href="#" target="_blank">
-              <li>Services</li>
-            </a>
-            <a href="#1" target="_blank">
-              <li>Contact</li>
-            </a>
+            <li>
+              <Link className="link" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="link" to="/about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className="link" to="/services">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link className="link" to="/contact">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="head-right">
