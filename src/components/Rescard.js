@@ -1,4 +1,4 @@
-import RES_IMG from "../utils/constant";
+import { RES_IMG } from "../utils/constant";
 import star from "../../images/star.png";
 
 const Rescard = ({ restaurant }) => {

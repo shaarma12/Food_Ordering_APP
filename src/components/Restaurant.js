@@ -1,45 +1,96 @@
 import { useEffect, useState } from "react";
 import CuisineCard from "./CuisineCard";
 import Coupon from "./Coupon";
+import clock from "../../images/clock.png";
+import rupee from "../../images/rupee.png";
+import star from "../../images/star.png";
+import Shimmer from "./Shimmer";
+import { useParams } from "react-router-dom";
+import { MENU_API } from "../utils/constant";
 
 const Restaurant = () => {
-  const [cuis, setCuis] = useState();
+  const [cuis, setCuis] = useState(null);
+  const { resId } = useParams();
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchData = async () => {
-    const url = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.693473&lng=77.297535&restaurantId=653368&catalog_qa=undefined&submitAction=ENTER"
-    );
+    const url = await fetch(MENU_API + resId);
 
     const data = await url.json();
     setCuis(data);
     console.log(data);
   };
+
+  if (cuis === null) {
+    return <Shimmer />;
+  }
+
+  const {
+    name,
+    cuisines,
+    areaName,
+    avgRating,
+    sla,
+    totalRatingsString,
+    costForTwoMessage,
+    id,
+  } = cuis?.data?.cards[0]?.card?.card?.info;
+
+  const { itemCards } =
+    cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+      ?.card;
   return (
     <>
       <div className="restruant">
         <div className="top">
           <div className="title">
-            <h3>Subway</h3>
-            <p>cuisine</p>
-            <p>DurgaPuri</p>
+            <p>{name}</p>
+            <p>{cuisines.join(", ")}</p>
+            <p>
+              {areaName}, {sla?.lastMileTravelString}
+            </p>
           </div>
           <div className="rating">
-            <h3>4.3 star</h3>
-            <p>500+ ratings</p>
+            <div className="sta">
+              <img src={star} />
+              <h3>{avgRating}</h3>
+            </div>
+            <div className="plus">
+              <p>{totalRatingsString}</p>
+            </div>
           </div>
         </div>
         <div className="offers">
           <div className="paise">
-            <h3>21 mins</h3>
-            <h3>350 for two</h3>
+            <img src={clock} />
+            <p>{sla?.slaString}</p>
+            <img src={rupee} />
+            <p>{costForTwoMessage}</p>
           </div>
-          <Coupon />
+          <div className="coupon">
+            <Coupon
+              copon="USE JUMBO"
+              off="20% OFF UPTO ₹60"
+              para="ON SELCT ITEMS"
+            />
+            <Coupon
+              copon="USE TRYNEW"
+              off="FLAT ₹125 OFF"
+              para="ON ABOVE ₹159"
+            />
+            <Coupon
+              copon="NO CODE REQUIRED"
+              off="Free Choco Lava Cake"
+              para="ON ABOVE ₹599"
+            />
+          </div>
         </div>
-        <div className="cuisines">
-          <CuisineCard />
-        </div>
+        <div className="cuisines">Recommended ({itemCards.length})</div>
+        {itemCards.map((i) => {
+          return <CuisineCard key={i.card.info.id} restro={i} />;
+        })}
       </div>
     </>
   );
