@@ -473,3 +473,39 @@
   margin-bottom: 8%;
   width: 85%;
 }
+.about {
+  width: 91vw;
+  margin: 10vmax 10vmax 10vmax 3%;
+  display: flex;
+  gap: 3%;
+  filter: drop-shadow(5px 5px 10px #080707);
+  flex-wrap: wrap;
+}
+.env {
+  border-radius: 10px;
+  width: 15vw;
+  height: 46vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8e8e8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1vmax;
+  margin-bottom: 4%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.env:hover {
+  transform: scaleY(1.1);
+}
+.env > img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 15vmax;
+}
+.hi {
+  margin-left: -20%;
+}
+.ho {
+  margin: 5% 0;
+}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RES_API } from "../utils/constant";
 const Body = () => {
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
@@ -12,9 +13,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const url = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.693473&lng=77.297535&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const url = await fetch(RES_API);
     const response = await url.json();
     setRest(
       response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
