@@ -87,8 +87,8 @@ const Restaurant = () => {
             />
           </div>
         </div>
-        <div className="cuisines">Recommended ({itemCards.length})</div>
-        {itemCards.map((i) => {
+        <div className="cuisines">Recommended ({itemCards?.length})</div>
+        {itemCards?.map((i) => {
           return <CuisineCard key={i.card.info.id} restro={i} />;
         })}
       </div>
