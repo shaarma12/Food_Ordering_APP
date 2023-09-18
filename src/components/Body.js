@@ -61,9 +61,13 @@ const Body = () => {
           </button>
         </div>
         <div className="res-card">
-          {filterlist.map((i) => {
+          {filterlist?.map((i) => {
             return (
-              <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
+              <Link
+                className="card"
+                key={i.info.id}
+                to={"/restaurant/" + i.info.id}
+              >
                 <Rescard restaurant={i} />
               </Link>
             );
