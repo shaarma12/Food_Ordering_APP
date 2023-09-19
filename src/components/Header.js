@@ -2,9 +2,13 @@ import { useState } from "react";
 import Logoimg from "../../images/Logoimg.png";
 import cart from "../../images/cart.png";
 import { Link } from "react-router-dom";
+import useStatus from "../utils/usestatus";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
+
+  // Custom Hook Creation that get the data regarding online status.
+  const onlineStatus = useStatus();
   return (
     <>
       <div id="heading">
@@ -37,7 +41,11 @@ const Header = () => {
               <Link className="link" to="/contact">
                 Contact
               </Link>
+              <Link className="link" to="/grocery">
+                Grocery
+              </Link>
             </li>
+            <li>{onlineStatus ? "🟢" : "🔴"}</li>
           </ul>
         </div>
         <div className="head-right">

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import CuisineCard from "./CuisineCard";
 import Coupon from "./Coupon";
 import clock from "../../images/clock.png";
@@ -6,23 +5,14 @@ import rupee from "../../images/rupee.png";
 import star from "../../images/star.png";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
+import useRes from "../utils/useRes";
 
 const Restaurant = () => {
-  const [cuis, setCuis] = useState(null);
   const { resId } = useParams();
-  useEffect(() => {
-    fetchData();
-  }, []);
 
-  const fetchData = async () => {
-    const url = await fetch(MENU_API + resId);
+  // Creating Custom hook for Fetching Data through API to make this component Single Responsible
 
-    const data = await url.json();
-    setCuis(data);
-    console.log(data);
-  };
-
+  const cuis = useRes(resId);
   if (cuis === null) {
     return <Shimmer />;
   }
