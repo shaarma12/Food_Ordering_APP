@@ -27,28 +27,19 @@ const Body = () => {
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
-      <div className="body">
-        <div className="searchbar">
-          <button
-            onClick={() => {
-              const change = rest.filter((i) => {
-                return i.info.avgRating > 4;
-              });
-              setFilterlist(change);
-            }}
-            className="filter-btn"
-          >
-            Top Rated
-          </button>
+      <div className="flex flex-col items-center">
+        <div className="flex m-10 ml-[75rem] items-center">
           <input
+            className="border-none mr-6 p-1 w-56"
             type="text"
-            placeholder="Search for restaurant, cuisine or a dish...."
+            placeholder="Search for restaurant, cuisine...."
             value={text}
             onChange={(e) => {
               setText(e.target.value);
             }}
           ></input>
           <button
+            className="px-4 py-2 ml-3 mr-2 rounded-lg bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl"
             onClick={() => {
               const searching = rest.filter((i) => {
                 return i.info.name.toLowerCase().includes(text.toLowerCase());
@@ -59,14 +50,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="res-card">
+        <button
+          onClick={() => {
+            const change = rest.filter((i) => {
+              return i.info.avgRating > 4;
+            });
+            setFilterlist(change);
+          }}
+          className="px-4 py-2 rounded-lg bg-red-400 text-white hover:scale-y-110 transition-all duration-300 mr-[68rem] drop-shadow-xl"
+        >
+          Top Rated
+        </button>
+
+        <div className="flex flex-wrap justify-center gap-6 mt-14">
           {filterlist?.map((i) => {
             return (
-              <Link
-                className="card"
-                key={i.info.id}
-                to={"/restaurant/" + i.info.id}
-              >
+              <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
                 <Rescard restaurant={i} />
               </Link>
             );

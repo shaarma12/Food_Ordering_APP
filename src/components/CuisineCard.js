@@ -4,10 +4,10 @@ import { CUIS_IMG } from "../utils/constant";
 const CuisineCard = ({ restro }) => {
   const { name, price, description, imageId } = restro?.card?.info;
   return (
-    <div className="menu-card">
+    <div className="flex flex-col">
       <div className="write">
         <p>{name}</p>
-        <div className="rups">
+        <div className="w-9">
           <img src={rup} />
           <p>{price / 100}</p>
         </div>

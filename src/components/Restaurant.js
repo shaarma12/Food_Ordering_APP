@@ -33,33 +33,37 @@ const Restaurant = () => {
       ?.card;
   return (
     <>
-      <div className="restruant">
-        <div className="top">
-          <div className="title">
-            <p>{name}</p>
-            <p>{cuisines.join(", ")}</p>
-            <p>
+      <div className="flex flex-col items-center mt-20">
+        <div className="flex justify-between w-[45rem]">
+          <div>
+            <p className="text-xl font-bold font-sans pb-2">{name}</p>
+            <p className="text-sm text-slate-500">{cuisines.join(", ")}</p>
+            <p className="text-sm text-slate-500">
               {areaName}, {sla?.lastMileTravelString}
             </p>
           </div>
-          <div className="rating">
-            <div className="sta">
-              <img src={star} />
-              <h3>{avgRating}</h3>
+          <div className="flex flex-col border-[1.5px] rounded-lg items-center  ">
+            <div className="flex border-b-[1px] pb-1 pt-1">
+              <img className="w-4 h-5 mr-1 mt-[0.35rem]" src={star} />
+              <h3 className="text-yellow-500 text-lg font-semibold">
+                {avgRating}
+              </h3>
             </div>
             <div className="plus">
-              <p>{totalRatingsString}</p>
+              <p className="text-[0.7rem] font-semibold text-slate-500 px-1 py-3">
+                {totalRatingsString}
+              </p>
             </div>
           </div>
         </div>
-        <div className="offers">
-          <div className="paise">
-            <img src={clock} />
-            <p>{sla?.slaString}</p>
-            <img src={rupee} />
-            <p>{costForTwoMessage}</p>
+        <div className="flex mt-7 flex-col w-[45rem] border-t-2 border-dotted border-gray-300">
+          <div className="flex mt-4">
+            <img className="w-5 h-6 pt-1 mr-2" src={clock} />
+            <p className="mr-4 font-bold text-lg">{sla?.slaString}</p>
+            <img className="w-5 h-6 mx-2 pt-1" src={rupee} />
+            <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
-          <div className="coupon">
+          <div className="flex mt-5">
             <Coupon
               copon="USE JUMBO"
               off="20% OFF UPTO ₹60"
