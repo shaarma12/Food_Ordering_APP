@@ -34,7 +34,7 @@ const Restaurant = () => {
   return (
     <>
       <div className="flex flex-col items-center mt-20">
-        <div className="flex justify-between w-[45rem]">
+        <div className="flex justify-between w-[47rem]">
           <div>
             <p className="text-xl font-bold font-sans pb-2">{name}</p>
             <p className="text-sm text-slate-500">{cuisines.join(", ")}</p>
@@ -44,7 +44,7 @@ const Restaurant = () => {
           </div>
           <div className="flex flex-col border-[1.5px] rounded-lg items-center  ">
             <div className="flex border-b-[1px] pb-1 pt-1">
-              <img className="w-4 h-5 mr-1 mt-[0.35rem]" src={star} />
+              <img className="w-4 h-5 mr-1 mt-[0.25rem]" src={star} />
               <h3 className="text-yellow-500 text-lg font-semibold">
                 {avgRating}
               </h3>
@@ -56,14 +56,14 @@ const Restaurant = () => {
             </div>
           </div>
         </div>
-        <div className="flex mt-7 flex-col w-[45rem] border-t-2 border-dotted border-gray-300">
+        <div className="flex mt-7 flex-col w-[47rem] border-t-2 border-dotted border-gray-300">
           <div className="flex mt-4">
             <img className="w-5 h-6 pt-1 mr-2" src={clock} />
             <p className="mr-4 font-bold text-lg">{sla?.slaString}</p>
             <img className="w-5 h-6 mx-2 pt-1" src={rupee} />
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
-          <div className="flex mt-5">
+          <div className="flex mt-5 relative right-2 border-b-8 border-gray-100 pb-16">
             <Coupon
               copon="USE JUMBO"
               off="20% OFF UPTO ₹60"
@@ -81,7 +81,9 @@ const Restaurant = () => {
             />
           </div>
         </div>
-        <div className="cuisines">Recommended ({itemCards?.length})</div>
+        <div className="w-[46rem] mt-5 my-6 font-bold text-xl text-gray-800 ">
+          Recommended ({itemCards?.length})
+        </div>
         {itemCards?.map((i) => {
           return <CuisineCard key={i.card.info.id} restro={i} />;
         })}
