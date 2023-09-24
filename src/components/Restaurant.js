@@ -33,7 +33,7 @@ const Restaurant = () => {
       ?.card;
   return (
     <>
-      <div className="flex flex-col items-center mt-20">
+      <div className="flex flex-col items-center mt-20 mx-auto">
         <div className="flex justify-between w-[47rem]">
           <div>
             <p className="text-xl font-bold font-sans pb-2">{name}</p>
