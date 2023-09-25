@@ -2,6 +2,7 @@ import { RES_IMG } from "../utils/constant";
 import star from "../../images/star.png";
 
 const Rescard = ({ restaurant }) => {
+  // console.log(restaurant);
   const { cloudinaryImageId, name, avgRating, cuisines, areaName } =
     restaurant?.info;
   return (
@@ -27,3 +28,23 @@ const Rescard = ({ restaurant }) => {
 };
 
 export default Rescard;
+
+// High order Component - It will take Component as input and enhance that component and return the enhance Component.
+
+export const DiscountInfo = (Rescard) => {
+  return (props) => {
+    const { aggregatedDiscountInfoV3 } = props?.restaurant?.info;
+
+    return (
+      <>
+        <h1 className="absolute z-10 font-extrabold text-xl text-white mt-[10.8rem] ml-5 opacity-90">
+          {aggregatedDiscountInfoV3?.header}
+          {""}
+          {aggregatedDiscountInfoV3?.subHeader}
+        </h1>
+        <div className="w-5 bg-black z-10"></div>
+        <Rescard {...props} />
+      </>
+    );
+  };
+};

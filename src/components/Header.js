@@ -11,11 +11,11 @@ const Header = () => {
   const onlineStatus = useStatus();
   return (
     <>
-      <div className="flex justify-between items-center shadow-xl sticky top-0 ">
+      <div className="flex justify-between items-center shadow-xl sticky top-0 z-10">
         {/* Logo */}
         <div>
           <Link to="/">
-            <img className="w-40" src={Logoimg} alt="Main Logo" />
+            <img className="w-40 " src={Logoimg} alt="Main Logo" />
           </Link>
         </div>
 
