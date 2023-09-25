@@ -4,6 +4,8 @@ import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RES_API } from "../utils/constant";
+import { DiscountInfo } from "./Rescard";
+
 const Body = () => {
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
@@ -15,6 +17,7 @@ const Body = () => {
   const fetchData = async () => {
     const url = await fetch(RES_API);
     const response = await url.json();
+
     setRest(
       response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -24,6 +27,11 @@ const Body = () => {
         ?.restaurants
     );
   };
+
+  // Calling High Order Component
+
+  const DiscountBanner = DiscountInfo(Rescard);
+
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
@@ -66,7 +74,11 @@ const Body = () => {
           {filterlist?.map((i) => {
             return (
               <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
-                <Rescard restaurant={i} />
+                {JSON.stringify(i?.info?.aggregatedDiscountInfoV2) === "{}" ? (
+                  <Rescard restaurant={i} />
+                ) : (
+                  <DiscountBanner restaurant={i} />
+                )}
               </Link>
             );
           })}
