@@ -5,7 +5,7 @@ const CuisineCard = ({ restro }) => {
   const { name, price, description, imageId, defaultPrice } =
     restro?.card?.info;
   return (
-    <div className="flex justify-between w-[46rem] border-b-[1.599px] border-gray-300 pb-10 mb-5">
+    <div className="flex justify-between w-[46rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-4">
       <div className="write">
         <p className="font-semibold text-lg text-gray-800">{name}</p>
         <div className="flex">

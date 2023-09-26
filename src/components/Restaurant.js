@@ -6,6 +6,7 @@ import star from "../../images/star.png";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRes from "../utils/useRes";
+import MenuAccordion from "./MenuAccordion";
 
 const Restaurant = () => {
   const { resId } = useParams();
@@ -28,9 +29,14 @@ const Restaurant = () => {
     id,
   } = cuis?.data?.cards[0]?.card?.card?.info;
 
-  const { itemCards } =
-    cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+  const { cards } = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
+  const filterAccordion = cards.filter((i) => {
+    return (
+      i?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  });
+  console.log(filterAccordion);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -63,7 +69,7 @@ const Restaurant = () => {
             <img className="w-5 h-6 mx-2 pt-1" src={rupee} />
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
-          <div className="flex mt-5 relative right-2 border-b-8 border-gray-100 pb-16">
+          <div className="flex mt-5 relative right-2 border-b-[1.5px] border-gray-300 pb-10 ">
             <Coupon
               copon="USE JUMBO"
               off="20% OFF UPTO ₹60"
@@ -81,11 +87,8 @@ const Restaurant = () => {
             />
           </div>
         </div>
-        <div className="w-[46rem] mt-5 my-6 font-bold text-xl text-gray-800 ">
-          Recommended ({itemCards?.length})
-        </div>
-        {itemCards?.map((i) => {
-          return <CuisineCard key={i.card.info.id} restro={i} />;
+        {filterAccordion.map((i) => {
+          return <MenuAccordion key={i?.card?.card?.title} accordion={i} />;
         })}
       </div>
     </>
