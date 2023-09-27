@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,12 +9,33 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Service from "./components/Service";
 import Restaurant from "./components/Restaurant";
+import UserContext from "./utils/UserContext";
+import { useState } from "react";
+
 const App = () => {
+  const [changer, setChanger] = useState();
+
+  const data = [
+    {
+      Name: "Himanshu",
+    },
+  ];
+  const fetchData = () => {
+    // Calling API
+    setChanger(data[0]?.Name);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      {/* for whole application the value of context is "Default" but for Header it should be "Himanshu" */}
+      <UserContext.Provider value={{ Login: changer, setChanger }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };

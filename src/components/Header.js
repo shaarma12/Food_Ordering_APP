@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Logoimg from "../../images/Logoimg.png";
 import cart from "../../images/cart.png";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
 
+  const { Login } = useContext(UserContext);
   // Custom Hook Creation that get the data regarding online status.
   const onlineStatus = useStatus();
   return (
@@ -66,7 +68,7 @@ const Header = () => {
           <div className="mr-5">
             <button
               onClick={() => {
-                title === "Login" ? setTitle("Logout") : setTitle("Login");
+                title === "Login" ? setTitle(Login) : setTitle("Login");
               }}
               className="px-4 py-2 ml-5 rounded-lg bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
             >
