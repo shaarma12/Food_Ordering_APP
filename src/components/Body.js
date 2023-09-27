@@ -1,12 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RES_API } from "../utils/constant";
 import { DiscountInfo } from "./Rescard";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
+  // Using Context
+  const { Login, setChanger } = useContext(UserContext);
+
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
   const [filterlist, setFilterlist] = useState([]);
@@ -36,6 +39,14 @@ const Body = () => {
   return (
     <>
       <div className="flex flex-col items-center">
+        <input
+          className="m-5 mr-48 p-1"
+          placeholder="Your Name"
+          value={Login}
+          onChange={(e) => {
+            setChanger(e.target.value);
+          }}
+        ></input>
         <div className="flex m-10 ml-[75rem] items-center">
           <input
             className="border-none mr-6 p-1 w-56"
