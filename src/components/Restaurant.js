@@ -7,10 +7,12 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRes from "../utils/useRes";
 import MenuAccordion from "./MenuAccordion";
+import { useState } from "react";
 
 const Restaurant = () => {
   const { resId } = useParams();
 
+  const [show, setShow] = useState(null);
   // Creating Custom hook for Fetching Data through API to make this component Single Responsible
 
   const cuis = useRes(resId);
@@ -36,7 +38,6 @@ const Restaurant = () => {
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   });
-  console.log(filterAccordion);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -87,8 +88,17 @@ const Restaurant = () => {
             />
           </div>
         </div>
-        {filterAccordion.map((i) => {
-          return <MenuAccordion key={i?.card?.card?.title} accordion={i} />;
+        {filterAccordion.map((i, index) => {
+          return (
+            <MenuAccordion
+              key={i?.card?.card?.title}
+              accordion={i}
+              open={index === show ? true : false}
+              setOpen={() => {
+                setShow(index);
+              }}
+            />
+          );
         })}
       </div>
     </>
