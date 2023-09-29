@@ -11,7 +11,7 @@ import Service from "./components/Service";
 import Restaurant from "./components/Restaurant";
 import UserContext from "./utils/UserContext";
 import { useState } from "react";
-
+import Cart from "./components/Cart";
 const App = () => {
   const [changer, setChanger] = useState();
 
@@ -74,6 +74,10 @@ const appRouter = createBrowserRouter([
             <Groceries />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
