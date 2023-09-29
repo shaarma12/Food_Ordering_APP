@@ -4,6 +4,7 @@ import bag from "../../images/bag.png";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
@@ -11,9 +12,11 @@ const Header = () => {
   const { Login } = useContext(UserContext);
   // Custom Hook Creation that get the data regarding online status.
   const onlineStatus = useStatus();
+
+  const cartItem = useSelector((store) => store.cart.items);
   return (
     <>
-      <div className="flex justify-between items-center shadow-xl sticky top-0 z-50">
+      <div className="flex justify-between items-center shadow-xl stic`ky top-0 z-50">
         {/* Logo */}
         <div>
           <Link to="/">
@@ -60,7 +63,7 @@ const Header = () => {
           <div>
             <Link to="/cart">
               <p className="relative top-14 left-[2.85rem] text-2xl font-semibold text-red-400">
-                2
+                {cartItem.length}
               </p>
               <img className="w-16 mx-5 mb-9" src={bag} alt="Cart" />
             </Link>

@@ -12,6 +12,8 @@ import Restaurant from "./components/Restaurant";
 import UserContext from "./utils/UserContext";
 import { useState } from "react";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 const App = () => {
   const [changer, setChanger] = useState();
 
@@ -30,12 +32,15 @@ const App = () => {
 
   return (
     <>
-      {/* for whole application the value of context is "Default" but for Header it should be "Himanshu" */}
-      <UserContext.Provider value={{ Login: changer, setChanger }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      {/* Connecting Redux Store to our Application by using Provider Component */}
+      <Provider store={appStore}>
+        {/* for whole application the value of context is "Default" but for Header it should be "Himanshu" */}
+        <UserContext.Provider value={{ Login: changer, setChanger }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 };
