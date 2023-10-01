@@ -16,7 +16,7 @@ const Header = () => {
   const cartItem = useSelector((store) => store.cart.items);
   return (
     <>
-      <div className="flex justify-between items-center shadow-xl stic`ky top-0 z-50">
+      <div className="flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
         {/* Logo */}
         <div>
           <Link to="/">
@@ -27,7 +27,7 @@ const Header = () => {
         {/* Nav Links */}
         <div className="mr-14">
           <ul className="flex">
-            <li className="px-10 text-3xl  font-serif hover:text-red-600 hover:underline underline-offset-8">
+            <li className="px-10 text-3xl  font-serif  hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/">
                 Home
               </Link>
@@ -76,7 +76,7 @@ const Header = () => {
               onClick={() => {
                 title === "Login" ? setTitle(Login) : setTitle("Login");
               }}
-              className="px-4 py-2 ml-5 rounded-lg bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
+              className="px-4 py-2 ml-5 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
             >
               {title}
             </button>
