@@ -47,7 +47,7 @@ const Body = () => {
             setChanger(e.target.value);
           }}
         ></input> */}
-        <div className="flex my-14 ml-[75rem] items-center mr-[20rem]">
+        <div className="flex my-14 ml-[75rem] items-center mr-[21rem]">
           <input
             className="border-none mr-6 p-1 w-56"
             type="text"
@@ -58,7 +58,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="px-4 py-2 ml-3 mr-2 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl"
+            className="px-4 py-2 ml-3 mr-2  rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl"
             onClick={() => {
               const searching = rest.filter((i) => {
                 return i.info.name.toLowerCase().includes(text.toLowerCase());
@@ -69,18 +69,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          onClick={() => {
-            const change = rest.filter((i) => {
-              return i.info.avgRating > 4;
-            });
-            setFilterlist(change);
-          }}
-          className="px-4 py-2 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 mr-[68rem] drop-shadow-xl"
-        >
-          Top Rated
-        </button>
-
+        <div className="border-t-2">
+          <h2 className="mt-6 text-2xl font-bold text-gray-900">
+            Restaurants with online food delivery in Delhi
+          </h2>
+          <button
+            onClick={() => {
+              const change = rest.filter((i) => {
+                return i.info.avgRating > 4;
+              });
+              setFilterlist(change);
+            }}
+            className="mt-6 px-3 py-2 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 mr-[68rem] drop-shadow-xl"
+          >
+            Top Rated
+          </button>
+        </div>
         <div className="flex flex-wrap justify-center gap-6 mt-14">
           {filterlist?.map((i) => {
             return (

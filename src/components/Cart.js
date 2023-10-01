@@ -29,7 +29,7 @@ const Cart = () => {
           </div>
         ) : (
           <button
-            className="bg-orange-400 ml-[40rem] text-white text-lg font-medium p-3 rounded-lg mb-6 hover:scale-y-105 transition-all duration-200"
+            className="bg-red-400 ml-[40rem] text-white text-lg font-medium p-3 rounded-lg mb-7 hover:scale-y-105 transition-all duration-200"
             onClick={() => {
               dispatch(clearCart());
             }}
@@ -37,9 +37,11 @@ const Cart = () => {
             Clear Cart
           </button>
         )}
-        {cartItem.map((i) => {
-          return <CuisineCard restro={i} />;
-        })}
+        <div className="border-t-2 mb-4">
+          {cartItem.map((i) => {
+            return <CuisineCard restro={i} />;
+          })}
+        </div>
       </div>
     </>
   );

@@ -12,7 +12,7 @@ import { useState } from "react";
 const Restaurant = () => {
   const { resId } = useParams();
 
-  const [show, setShow] = useState(null);
+  const [show, setShow] = useState();
   // Creating Custom hook for Fetching Data through API to make this component Single Responsible
 
   const cuis = useRes(resId);
