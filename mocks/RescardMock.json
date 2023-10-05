@@ -1,0 +1,75 @@
+{
+    "info": {
+        "id": "169483",
+        "name": "Bakingo",
+        "cloudinaryImageId": "igl34lywkjmuuqtyjac5",
+        "locality": "West Arjun Nagar",
+        "areaName": "Krishna Nagar",
+        "costForTwo": "₹300 for two",
+        "cuisines": [
+            "Bakery",
+            "Desserts",
+            "Beverages",
+            "Snacks"
+        ],
+        "avgRating": 4.3,
+        "feeDetails": {
+            "restaurantId": "169483",
+            "fees": [
+                {
+                    "name": "BASE_DISTANCE",
+                    "fee": 6400
+                },
+                {
+                    "name": "BASE_TIME"
+                },
+                {
+                    "name": "ANCILLARY_SURGE_FEE"
+                }
+            ],
+            "totalFee": 6400
+        },
+        "parentId": "3818",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "10K+",
+        "sla": {
+            "deliveryTime": 26,
+            "lastMileTravel": 5.5,
+            "serviceability": "SERVICEABLE",
+            "slaString": "26 mins",
+            "lastMileTravelString": "5.5 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2023-10-06 01:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {},
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/bakingo-west-arjun-nagar-krishna-nagar-delhi-169483",
+        "type": "WEBLINK"
+    }
+}

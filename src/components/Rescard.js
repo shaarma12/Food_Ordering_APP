@@ -2,6 +2,7 @@ import { RES_IMG } from "../utils/constant";
 // import star from "../../images/star.png";
 
 const Rescard = ({ restaurant }) => {
+  console.log(restaurant);
   const { cloudinaryImageId, name, avgRating, cuisines, areaName } =
     restaurant?.info;
   return (
