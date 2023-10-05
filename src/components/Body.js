@@ -50,6 +50,7 @@ const Body = () => {
         <div className="flex my-14 ml-[75rem] items-center mr-[21rem]">
           <input
             className="border-none mr-6 p-1 w-64"
+            data-testid="searchInput"
             type="text"
             placeholder="Search for restaurant, cuisine...."
             value={text}

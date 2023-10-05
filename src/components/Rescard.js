@@ -2,12 +2,14 @@ import { RES_IMG } from "../utils/constant";
 // import star from "../../images/star.png";
 
 const Rescard = ({ restaurant }) => {
-  console.log(restaurant);
   const { cloudinaryImageId, name, avgRating, cuisines, areaName } =
     restaurant?.info;
   return (
     <>
-      <div className="mb-5 font-sans hover:scale-y-110 transition-all duration-500 ">
+      <div
+        className="mb-5 font-sans hover:scale-y-110 transition-all duration-500 "
+        data-testid="resList"
+      >
         <img
           className="w-72 h-52 rounded-3xl drop-shadow-[5px_5px_10px_rgba(8,7,7,1)]"
           src={RES_IMG + cloudinaryImageId}
