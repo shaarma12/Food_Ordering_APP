@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-// import Logoimg from "../../images/Logoimg.png";
-// import bag from "../../images/bag.png";
+import Logoimg from "../../images/Logoimg.png";
+import bag from "../../images/bag.png";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
@@ -20,7 +20,7 @@ const Header = () => {
         {/* Logo */}
         <div>
           <Link to="/">
-            <img className="w-40 " src alt="Main Logo" />
+            <img className="w-40 " src={Logoimg} alt="Main Logo" />
           </Link>
         </div>
 
@@ -65,7 +65,7 @@ const Header = () => {
               <p className="relative top-14 left-[2.85rem] text-2xl font-semibold text-red-400">
                 {cartItem.length}
               </p>
-              <img className="w-16 mx-5 mb-9" src alt="Cart" />
+              <img className="w-16 mx-5 mb-9" src={bag} alt="Cart" />
             </Link>
           </div>
 

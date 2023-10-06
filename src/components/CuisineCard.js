@@ -10,7 +10,10 @@ const CuisineCard = ({ restro }) => {
     restro?.card?.info;
   const dispatch = useDispatch();
   return (
-    <div className="flex justify-between w-[46rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-2">
+    <div
+      className="flex justify-between w-[46rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-2"
+      data-testid="cuisine"
+    >
       <div>
         <div className="w-5">
           {isVeg ? <img src={veg} /> : <img src={nonveg} />}

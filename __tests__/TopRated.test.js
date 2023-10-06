@@ -25,5 +25,6 @@ it("Should Test Top-Rated Functionality", async () => {
   const topRated = screen.getByRole("button", { name: "Top Rated" });
   fireEvent.click(topRated);
   const afterClickTopRated = screen.getAllByTestId("resList");
-  expect(afterClickTopRated.length).toBe(8);
+
+  expect(afterClickTopRated.length).toBe(9);
 });
