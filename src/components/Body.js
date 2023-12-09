@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { RES_API } from "../utils/constant";
 import { DiscountInfo } from "./Rescard";
 import UserContext from "../utils/UserContext";
+import GridCards from "./GridCards";
 
 const Body = () => {
   // Using Context
@@ -12,6 +13,7 @@ const Body = () => {
 
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
+  const [gridImage, setGridImage] = useState(null);
   const [filterlist, setFilterlist] = useState([]);
   useEffect(() => {
     fetchData();
@@ -29,12 +31,12 @@ const Body = () => {
       response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+    setGridImage(response?.data?.cards[1]?.card?.card?.imageGridCards?.info);
   };
 
   // Calling High Order Component
 
   const DiscountBanner = DiscountInfo(Rescard);
-
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
@@ -69,6 +71,16 @@ const Body = () => {
           >
             Search
           </button>
+        </div>
+        <div className="border-t-2 ">
+          <h2 className="mt-6 text-2xl font-bold text-gray-900 mr-[61rem] mb-6">
+            Best offers for you
+          </h2>
+          <div className="flex overflow-x-scroll scroll-smooth no-scrollbar">
+            {gridImage.map((i) => {
+              return <GridCards key={i?.id} gridImage={i} />;
+            })}
+          </div>
         </div>
         <div className="border-t-2">
           <h2 className="mt-6 text-2xl font-bold text-gray-900">
