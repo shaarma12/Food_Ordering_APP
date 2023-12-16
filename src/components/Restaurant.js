@@ -70,7 +70,7 @@ const Restaurant = () => {
             <img className="w-5 h-6 mx-2 pt-1" src={rupee} />
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
-          <div className="flex mt-5 relative right-2 border-b-[1.5px] border-gray-300 pb-10 ">
+          <div className="flex mt-5 relative right-2 border-b-[1.5px] border-gray-300 pb-10 overflow-x-scroll no-scrollbar">
             <Coupon
               copon="USE JUMBO"
               off="20% OFF UPTO ₹60"
@@ -80,6 +80,26 @@ const Restaurant = () => {
               copon="USE TRYNEW"
               off="FLAT ₹125 OFF"
               para="ON ABOVE ₹159"
+            />
+            <Coupon
+              copon="NO CODE REQUIRED"
+              off="Free Choco Lava Cake"
+              para="ON ABOVE ₹599"
+            />
+            <Coupon
+              copon="NO CODE REQUIRED"
+              off="Free Choco Lava Cake"
+              para="ON ABOVE ₹599"
+            />
+            <Coupon
+              copon="NO CODE REQUIRED"
+              off="Free Choco Lava Cake"
+              para="ON ABOVE ₹599"
+            />
+            <Coupon
+              copon="NO CODE REQUIRED"
+              off="Free Choco Lava Cake"
+              para="ON ABOVE ₹599"
             />
             <Coupon
               copon="NO CODE REQUIRED"

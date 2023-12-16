@@ -72,16 +72,14 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div>
-          <h2 className="mt-6 text-2xl font-bold text-gray-900 ml-[10.5rem] mb-6">
+        <div className="flex flex-col border-2 border-red-600 w-[75rem]">
+          <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
             Best offers for you
           </h2>
-          <div className="overflow-x-scroll scroll-smooth no-scrollbar">
-            <div className="flex gap-2 pl-14 ml-[7.3rem]">
-              {gridImage.map((i) => {
-                return <GridCards key={i?.id} gridImage={i} />;
-              })}
-            </div>
+          <div className="flex overflow-x-auto gap-2 pl-14 border-2 w-full border-yellow-500">
+            {gridImage.map((i) => {
+              return <GridCards key={i?.id} gridImage={i} />;
+            })}
           </div>
         </div>
         <div className="border-t-2">
