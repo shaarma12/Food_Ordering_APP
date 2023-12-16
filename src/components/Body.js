@@ -31,7 +31,7 @@ const Body = () => {
       response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    setGridImage(response?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+    setGridImage(response?.data?.cards[1]?.card?.card);
   };
 
   // Calling High Order Component
@@ -74,10 +74,10 @@ const Body = () => {
         </div>
         <div className="flex flex-col border-2 border-red-600 w-[75rem]">
           <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
-            Best offers for you
+            {gridImage?.header?.title}
           </h2>
           <div className="flex overflow-x-auto gap-2 pl-14 border-2 w-full border-yellow-500">
-            {gridImage.map((i) => {
+            {gridImage?.imageGridCards?.info.map((i) => {
               return <GridCards key={i?.id} gridImage={i} />;
             })}
           </div>
