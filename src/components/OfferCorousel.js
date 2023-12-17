@@ -1,5 +1,5 @@
-const GridCards = ({ gridImage }) => {
-  const { imageId } = gridImage;
+const OfferCorousel = ({ corouselData }) => {
+  const { imageId } = corouselData;
   return (
     <div>
       <img
@@ -8,9 +8,9 @@ const GridCards = ({ gridImage }) => {
           imageId
         }
         alt="specific dishes"
-        className="mx-[5.5rem] h-40 cursor-pointer"
+        className="mx-[20.5rem] mr-32 h-64 cursor-pointer"
       />
     </div>
   );
 };
-export default GridCards;
+export default OfferCorousel;

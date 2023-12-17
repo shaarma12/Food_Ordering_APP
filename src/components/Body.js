@@ -6,6 +6,7 @@ import { RES_API } from "../utils/constant";
 import { DiscountInfo } from "./Rescard";
 import UserContext from "../utils/UserContext";
 import GridCards from "./GridCards";
+import OfferCorousel from "./OfferCorousel";
 
 const Body = () => {
   // Using Context
@@ -31,7 +32,7 @@ const Body = () => {
       response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    setGridImage(response?.data?.cards[1]?.card?.card);
+    setGridImage(response?.data);
   };
 
   // Calling High Order Component
@@ -40,7 +41,7 @@ const Body = () => {
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center w-[94.5rem]">
         {/* <input
           className="m-5 mr-48 p-1"
           placeholder="Your Name"
@@ -72,16 +73,35 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="flex flex-col border-2 border-red-600 w-[75rem]">
+        <div className="flex flex-col w-[75rem]">
           <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
-            {gridImage?.header?.title}
+            Best offers for you
           </h2>
-          <div className="flex overflow-x-auto gap-2 pl-14 border-2 w-full border-yellow-500">
-            {gridImage?.imageGridCards?.info.map((i) => {
-              return <GridCards key={i?.id} gridImage={i} />;
-            })}
+          <div className="flex overflow-x-scroll no-scrollbar gap-2 w-[75rem]">
+            <div className="flex -ml-[20rem]">
+              {gridImage?.cards[0]?.card?.card?.imageGridCards?.info.map(
+                (i) => {
+                  return <OfferCorousel key={i?.id} corouselData={i} />;
+                }
+              )}
+            </div>
           </div>
         </div>
+        <div className="flex flex-col w-[75rem] mb-16">
+          <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
+            {gridImage?.cards[1]?.card?.card?.header?.title}
+          </h2>
+          <div className="flex overflow-x-scroll no-scrollbar gap-2 w-[75rem]">
+            <div className="flex -ml-20">
+              {gridImage?.cards[1]?.card?.card?.imageGridCards?.info.map(
+                (i) => {
+                  return <GridCards key={i?.id} gridImage={i} />;
+                }
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="border-t-2">
           <h2 className="mt-6 text-2xl font-bold text-gray-900">
             Restaurants with online food delivery in Delhi
