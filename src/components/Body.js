@@ -77,7 +77,7 @@ const Body = () => {
           <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
             Best offers for you
           </h2>
-          <div className="flex overflow-x-scroll no-scrollbar gap-2 w-[75rem]">
+          <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
             <div className="flex -ml-[20rem]">
               {gridImage?.cards[0]?.card?.card?.imageGridCards?.info.map(
                 (i) => {
@@ -91,7 +91,7 @@ const Body = () => {
           <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
             {gridImage?.cards[1]?.card?.card?.header?.title}
           </h2>
-          <div className="flex overflow-x-scroll no-scrollbar gap-2 w-[75rem]">
+          <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
             <div className="flex -ml-20">
               {gridImage?.cards[1]?.card?.card?.imageGridCards?.info.map(
                 (i) => {
