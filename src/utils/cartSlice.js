@@ -4,17 +4,21 @@ const cartSlice = createSlice({
   name: "Cart",
   initialState: {
     items: [],
-    tally: 0,
+    tally: [],
+    counting: 0,
   },
   reducers: {
     addItems: (state, action) => {
       //mutating the state directly
-      state.items.map((i) => {
-        if (i?.info?.id === action?.payload?.info?.id) {
-          state.tally += 1;
-        }
-      });
       state.items.push(action.payload);
+      for (let i = 0; i < state.items.length; i++) {
+        if (
+          state.items[i]?.card?.info?.id === state.items[i + 1]?.card?.info?.id
+        ) {
+          state.tally.push(state.items[i]);
+          state.counting = state.tally.length;
+        }
+      }
     },
     removeItems: (state, action) => {
       state.items.pop(action.payload);
