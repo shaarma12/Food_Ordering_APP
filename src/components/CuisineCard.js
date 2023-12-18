@@ -1,11 +1,13 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CUIS_IMG } from "../utils/constant";
-import { addItems } from "../utils/cartSlice";
+import { addItems, removeItems } from "../utils/cartSlice";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 
 const CuisineCard = ({ restro }) => {
+  const measure = useSelector((store) => store.cart.tally);
+  const [count, setCount] = useState(0);
   const { name, price, description, imageId, defaultPrice, isVeg } =
     restro?.card?.info;
   const dispatch = useDispatch();
@@ -34,14 +36,41 @@ const CuisineCard = ({ restro }) => {
           className="min-w-[140] max-w-[130] h-28 rounded-xl cursor-pointer"
           src={CUIS_IMG + imageId}
         />
-        <button
-          className="px-9 py-2 b bg-white text-green-600 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
-          onClick={() => {
-            dispatch(addItems(restro));
-          }}
-        >
-          ADD
-        </button>
+        {count > 0 && measure ? (
+          <button className="w-24 h-9 bg-white text-green-600 relative bottom-6 left-[1.57rem] rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100">
+            <div className="flex justify-between ml-10">
+              <p
+                className="-ml-7 mb-2 text-2xl"
+                onClick={() => {
+                  setCount(count - 1);
+                  dispatch(removeItems(restro));
+                }}
+              >
+                -
+              </p>
+              <p className="mt-2">{count}</p>
+              <p
+                className="mr-2 mb-2 text-2xl"
+                onClick={() => {
+                  setCount(count + 1);
+                  dispatch(addItems(restro));
+                }}
+              >
+                +
+              </p>
+            </div>
+          </button>
+        ) : (
+          <button
+            className="px-9 py-2 b bg-white text-green-600 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
+            onClick={() => {
+              setCount(count + 1);
+              dispatch(addItems(restro));
+            }}
+          >
+            ADD
+          </button>
+        )}
       </div>
     </div>
   );
