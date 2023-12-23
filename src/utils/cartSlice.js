@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     items: [],
     tally: [],
     counting: 0,
+    abc: [],
   },
   reducers: {
     addItems: (state, action) => {
@@ -16,7 +17,14 @@ const cartSlice = createSlice({
           state.items[i]?.card?.info?.id === state.items[i + 1]?.card?.info?.id
         ) {
           state.tally.push(state.items[i]);
-          state.counting = state.tally.length;
+        }
+      }
+      for (let i = 0; i < state.tally.length; i++) {
+        if (
+          state.tally[i]?.card?.info?.id != state.tally[i + 1]?.card?.info?.id
+        ) {
+          state.abc.push(state.tally[i]);
+          state.counting = state.abc.length;
         }
       }
     },
