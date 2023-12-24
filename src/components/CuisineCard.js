@@ -4,6 +4,7 @@ import { CUIS_IMG } from "../utils/constant";
 import { addItems, removeItems } from "../utils/cartSlice";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
+import PriceBanner from "./PriceBanner";
 
 const CuisineCard = ({ restro }) => {
   const measure = useSelector((store) => store.cart.tally);
@@ -36,7 +37,7 @@ const CuisineCard = ({ restro }) => {
           className="min-w-[140] max-w-[130] h-28 rounded-xl cursor-pointer"
           src={CUIS_IMG + imageId}
         />
-        {count > 0 && measure ? (
+        {count > 0 ? (
           <button className="w-24 h-9 bg-white text-green-600 relative bottom-6 left-[1.57rem] rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100">
             <div className="flex justify-between ml-10">
               <p
@@ -44,6 +45,7 @@ const CuisineCard = ({ restro }) => {
                 onClick={() => {
                   setCount(count - 1);
                   dispatch(removeItems(restro));
+                  <PriceBanner />;
                 }}
               >
                 -
