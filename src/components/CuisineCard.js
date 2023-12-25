@@ -7,7 +7,8 @@ import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
 
 const CuisineCard = ({ restro }) => {
-  const measure = useSelector((store) => store.cart.tally);
+  // const measure = useSelector((store) => store.cart.tally);
+  const [banner, setBanner] = useState();
   const [count, setCount] = useState(0);
   const { name, price, description, imageId, defaultPrice, isVeg } =
     restro?.card?.info;
@@ -64,16 +65,18 @@ const CuisineCard = ({ restro }) => {
           </button>
         ) : (
           <button
-            className="px-9 py-2 b bg-white text-green-600 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
+            className="px-9 py-2 b bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
               setCount(count + 1);
               dispatch(addItems(restro));
+              setBanner(<PriceBanner />);
             }}
           >
             ADD
           </button>
         )}
       </div>
+      {count > 0 ? banner : null}
     </div>
   );
 };
