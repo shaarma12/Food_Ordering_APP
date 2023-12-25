@@ -46,7 +46,6 @@ const CuisineCard = ({ restro }) => {
                 onClick={() => {
                   setCount(count - 1);
                   dispatch(removeItems(restro));
-                  <PriceBanner />;
                 }}
               >
                 -
@@ -57,6 +56,7 @@ const CuisineCard = ({ restro }) => {
                 onClick={() => {
                   setCount(count + 1);
                   dispatch(addItems(restro));
+                  setBanner(<PriceBanner />);
                 }}
               >
                 +
