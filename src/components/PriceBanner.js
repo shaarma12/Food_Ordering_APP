@@ -6,7 +6,9 @@ const PriceBanner = () => {
   const count = useSelector((store) => store.cart.items);
   let value = 0;
   count.map((i) => {
-    return (value += i?.card?.info?.price / 100);
+    return (value += i?.card?.info?.price
+      ? i?.card?.info?.price / 100
+      : i?.card?.info?.defaultPrice / 100);
   });
   return (
     <Link

@@ -7,7 +7,7 @@ import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
 
 const CuisineCard = ({ restro }) => {
-  // const measure = useSelector((store) => store.cart.tally);
+  const measure = useSelector((store) => store.cart.items);
   const [banner, setBanner] = useState();
   const [count, setCount] = useState(0);
   const { name, price, description, imageId, defaultPrice, isVeg } =
@@ -37,6 +37,7 @@ const CuisineCard = ({ restro }) => {
         <img
           className="min-w-[140] max-w-[130] h-28 rounded-xl cursor-pointer"
           src={CUIS_IMG + imageId}
+          alt="Image not found!"
         />
         {count > 0 ? (
           <button className="w-24 h-9 bg-white text-green-600 relative bottom-6 left-[1.57rem] rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100">
@@ -76,7 +77,7 @@ const CuisineCard = ({ restro }) => {
           </button>
         )}
       </div>
-      {count > 0 ? banner : null}
+      {measure.length > 0 ? banner : null}
     </div>
   );
 };

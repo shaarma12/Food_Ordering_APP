@@ -12,7 +12,7 @@ import { useState } from "react";
 const Restaurant = () => {
   const { resId } = useParams();
 
-  const [show, setShow] = useState();
+  // const [show, setShow] = useState();
   // Creating Custom hook for Fetching Data through API to make this component Single Responsible
 
   const cuis = useRes(resId);
@@ -113,10 +113,11 @@ const Restaurant = () => {
             <MenuAccordion
               key={i?.card?.card?.title}
               accordion={i}
-              open={index === show ? true : false}
-              setOpen={() => {
-                setShow(index);
-              }}
+              // Lifting the state Up(passing the data from child to parent component using the function) :-
+              // open={index === show ? true : false}
+              // setOpen={() => {
+              //   setShow(index);
+              // }}
             />
           );
         })}
