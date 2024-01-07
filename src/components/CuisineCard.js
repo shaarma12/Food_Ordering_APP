@@ -77,7 +77,7 @@ const CuisineCard = ({ restro }) => {
           </button>
         )}
       </div>
-      {measure.length > 0 ? banner : null}
+      {measure.length > 0 && banner}
     </div>
   );
 };
