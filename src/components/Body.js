@@ -7,6 +7,7 @@ import { DiscountInfo } from "./Rescard";
 import UserContext from "../utils/UserContext";
 import GridCards from "./GridCards";
 import OfferCorousel from "./OfferCorousel";
+import search from "../../images/search.svg";
 
 const Body = () => {
   // Using Context
@@ -57,9 +58,9 @@ const Body = () => {
             setChanger(e.target.value);
           }}
         ></input> */}
-        <div className="flex my-14 ml-[75rem] items-center mr-[21rem]">
+        <div className="flex my-14 ml-[75rem] items-center mr-[75rem]">
           <input
-            className="border-none mr-6 p-1 w-64"
+            className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 p-2 w-[32rem]"
             data-testid="searchInput"
             type="text"
             placeholder="Search for restaurant, cuisine...."
@@ -69,7 +70,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="px-4 py-2 ml-3 mr-2  rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl"
+            className="p-2 -ml-6 border-y-2 border-r-2 border-black rounded-tr-full rounded-br-full  font-medium bg-black text-white"
             onClick={() => {
               const searching = rest.filter((i) => {
                 return i.info.name.toLowerCase().includes(text.toLowerCase());
@@ -77,7 +78,7 @@ const Body = () => {
               setFilterlist(searching);
             }}
           >
-            Search
+            <img src={search} alt="search" className="w-[1.8rem] pr-1" />
           </button>
         </div>
         {!CorouselChecker && (
