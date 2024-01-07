@@ -24,12 +24,18 @@ const Body = () => {
     const response = await url.json();
 
     setRest(
-      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+      !CorouselChecker
+        ? response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        : response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
     );
     setFilterlist(
-      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+      !CorouselChecker
+        ? response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        : response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
     );
     setGridImage(response?.data);
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
@@ -90,20 +96,37 @@ const Body = () => {
             </div>
           </div>
         )}
-        <div className="flex flex-col w-[75rem] mb-16">
-          <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
-            {gridImage?.cards[1]?.card?.card?.header?.title}
-          </h2>
-          <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
-            <div className="flex -ml-20">
-              {gridImage?.cards[1]?.card?.card?.imageGridCards?.info.map(
-                (i) => {
-                  return <GridCards key={i?.id} gridImage={i} />;
-                }
-              )}
+        {!CorouselChecker ? (
+          <div className="flex flex-col w-[75rem] mb-16">
+            <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
+              {gridImage?.cards[1]?.card?.card?.header?.title}
+            </h2>
+            <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
+              <div className="flex -ml-20">
+                {gridImage?.cards[1]?.card?.card?.imageGridCards?.info.map(
+                  (i) => {
+                    return <GridCards key={i?.id} gridImage={i} />;
+                  }
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex flex-col w-[75rem] mb-16">
+            <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
+              {gridImage?.cards[0]?.card?.card?.header?.title}
+            </h2>
+            <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
+              <div className="flex -ml-20">
+                {gridImage?.cards[0]?.card?.card?.imageGridCards?.info.map(
+                  (i) => {
+                    return <GridCards key={i?.id} gridImage={i} />;
+                  }
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="border-t-2">
           <h2 className="mt-6 text-2xl font-bold text-gray-900">
