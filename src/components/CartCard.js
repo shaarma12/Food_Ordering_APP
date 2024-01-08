@@ -6,13 +6,8 @@ import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
 
-const CuisineCard = ({ restro }) => {
+const CartCard = ({ restro }) => {
   const dispatch = useDispatch();
-  const count = useSelector(
-    (store) =>
-      store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
-        ?.count || 0
-  );
   const [banner, setBanner] = useState();
 
   return (
@@ -50,7 +45,7 @@ const CuisineCard = ({ restro }) => {
           alt="Image not found!"
         />
         {/* Add button and count UI */}
-        {count > 0 ? (
+        {restro?.count > 0 ? (
           <button className="w-24 h-9 bg-white text-green-600 relative bottom-6 left-[1.57rem] rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100">
             <div className="flex justify-between ml-10">
               <p
@@ -61,7 +56,7 @@ const CuisineCard = ({ restro }) => {
               >
                 -
               </p>
-              <p className="mt-2">{count}</p>
+              <p className="mt-2">{restro?.count}</p>
               <p
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
@@ -87,9 +82,9 @@ const CuisineCard = ({ restro }) => {
           </button>
         )}
       </div>
-      {count > 0 && banner}
+      {restro?.count > 0 && banner}
     </div>
   );
 };
 
-export default CuisineCard;
+export default CartCard;
