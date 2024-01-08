@@ -8,6 +8,7 @@ import PriceBanner from "./PriceBanner";
 
 const CuisineCard = ({ restro }) => {
   const dispatch = useDispatch();
+
   const count = useSelector(
     (store) =>
       store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
@@ -78,7 +79,6 @@ const CuisineCard = ({ restro }) => {
           <button
             className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
-              setCount(count + 1);
               dispatch(addItems(restro));
               setBanner(<PriceBanner />);
             }}

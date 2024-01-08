@@ -14,6 +14,7 @@ const Header = () => {
   const onlineStatus = useStatus();
 
   const cartItem = useSelector((store) => store.cart.items);
+  const totalQuantity = cartItem.reduce((acc, item) => acc + item.count, 0);
   return (
     <>
       <div className="flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
@@ -63,7 +64,7 @@ const Header = () => {
           <div>
             <Link to="/cart">
               <p className="relative top-14 left-[2.85rem] text-2xl font-semibold text-red-400">
-                {cartItem.length}
+                {totalQuantity}
               </p>
               <img className="w-16 mx-5 mb-9" src={bag} alt="Cart" />
             </Link>
