@@ -1,4 +1,3 @@
-import CuisineCard from "./CuisineCard";
 import Coupon from "./Coupon";
 import clock from "../../images/clock.png";
 import rupee from "../../images/rupee.png";
