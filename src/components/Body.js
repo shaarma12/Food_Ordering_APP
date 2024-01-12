@@ -41,7 +41,6 @@ const Body = () => {
     setGridImage(response?.data);
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
   };
-
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
 
