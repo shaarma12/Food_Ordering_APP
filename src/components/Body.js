@@ -8,10 +8,13 @@ import UserContext from "../utils/UserContext";
 import GridCards from "./GridCards";
 import OfferCorousel from "./OfferCorousel";
 import search from "../../images/search.svg";
+import { useSelector } from "react-redux";
+import PriceBanner from "./PriceBanner";
 
 const Body = () => {
   // Using Context
   const { Login, setChanger } = useContext(UserContext);
+  const banner = useSelector((store) => store.cart.items);
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
   const [gridImage, setGridImage] = useState(null);
@@ -25,17 +28,17 @@ const Body = () => {
     const response = await url.json();
 
     setRest(
-      !CorouselChecker
-        ? response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      !gridImage?.cards[0]?.card?.card?.header?.title
+        ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
-        : response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
     );
     setFilterlist(
-      !CorouselChecker
-        ? response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      !gridImage?.cards[0]?.card?.card?.header?.title
+        ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
-        : response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
     );
     setGridImage(response?.data);
@@ -49,6 +52,7 @@ const Body = () => {
   return (
     <>
       <div className="flex flex-col items-center w-[94.5rem]">
+        {banner.length > 0 && <PriceBanner />}
         {/* <input
           className="m-5 mr-48 p-1"
           placeholder="Your Name"
@@ -127,7 +131,6 @@ const Body = () => {
             </div>
           </div>
         )}
-
         <div className="border-t-2">
           <h2 className="mt-6 text-2xl font-bold text-gray-900">
             Restaurants with online food delivery in Delhi
