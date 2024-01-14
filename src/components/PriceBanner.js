@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import cartBag from "../../images/cartBag.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-const PriceBanner = () => {
+const PriceBanner = ({ actual }) => {
   const count = useSelector((store) => store.cart.items);
   const quantity = count.reduce((acc, i) => (acc += i.count), 0);
   let value = 0;
   count.map((i) => {
-    return (value += i?.card?.info?.price
+    let c = i?.card?.info?.price
       ? i?.card?.info?.price / 100
-      : i?.card?.info?.defaultPrice / 100);
+      : i?.card?.info?.defaultPrice / 100;
+    return (value += i?.count * c);
   });
   return (
     <Link
