@@ -63,6 +63,7 @@ const CuisineCard = ({ restro }) => {
                 -
               </p>
               <p className="mt-2">{count}</p>
+              {console.log(count)}
               <p
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {

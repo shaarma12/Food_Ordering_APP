@@ -6,9 +6,11 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRes from "../utils/useRes";
 import MenuAccordion from "./MenuAccordion";
+import { useState } from "react";
 
 const Restaurant = () => {
   const { resId } = useParams();
+  const [veg, setVeg] = useState(false);
 
   // const [show, setShow] = useState();
   // Creating Custom hook for Fetching Data through API to make this component Single Responsible
@@ -36,6 +38,7 @@ const Restaurant = () => {
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   });
+  console.log(veg);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -68,7 +71,7 @@ const Restaurant = () => {
             <img className="w-5 h-6 mx-2 pt-1" src={rupee} />
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
-          <div className="flex mt-5 relative right-2 border-b-[1.5px] border-gray-300 pb-10 overflow-x-scroll no-scrollbar">
+          <div className="flex mt-5 relative right-2 pb-10 overflow-x-scroll no-scrollbar">
             <Coupon
               copon="USE JUMBO"
               off="20% OFF UPTO ₹60"
@@ -105,11 +108,41 @@ const Restaurant = () => {
               para="ON ABOVE ₹599"
             />
           </div>
+          <div className="border-b-[1.5px] border-gray-300">
+            <div className="flex mt-2 mb-6">
+              <p className="mr-2 text-sm font-bold tracking-wider cursor-pointer">
+                Veg Only
+              </p>
+              {veg === false ? (
+                <div
+                  className="w-11 h-6 rounded-md bg-[#D4D5D9] cursor-pointer"
+                  onClick={() => {
+                    setVeg(true);
+                  }}
+                >
+                  <div className=" bg-white w-5 h-5 ml-[0.1rem] mt-[0.13rem] rounded-md"></div>
+                </div>
+              ) : (
+                <div
+                  className=" w-11 h-6 rounded-md bg-[#008000] cursor-pointer"
+                  onClick={() => {
+                    setVeg(false);
+                  }}
+                >
+                  <img
+                    className="bg-white w-5 h-5 ml-[1.4rem] mt-[0.13rem] rounded-md"
+                    src="https://www.pngkey.com/png/full/261-2619381_chitr-veg-symbol-svg-veg-and-non-veg.png"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
         {filterAccordion.map((i, index) => {
           return (
             <MenuAccordion
               key={i?.card?.card?.title}
+              veg={veg}
               accordion={i}
               // Lifting the state Up(passing the data from child to parent component using the function) :-
               // open={index === show ? true : false}
