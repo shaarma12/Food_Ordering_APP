@@ -5,16 +5,18 @@ import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
+import changeRestruantBanner from "./changeRestruantBanner";
 
-const CuisineCard = ({ restro }) => {
+const CuisineCard = ({ restro, name }) => {
+  const [banner, setBanner] = useState();
+  const [changeRestruant, setchangeRestruant] = useState();
   const dispatch = useDispatch();
-
+  const restruantName = useSelector((store) => store.cart.restruantName);
   const count = useSelector(
     (store) =>
       store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
         ?.count || 0
   );
-  const [banner, setBanner] = useState();
 
   return (
     <div
@@ -67,7 +69,11 @@ const CuisineCard = ({ restro }) => {
               <p
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
-                  dispatch(addItems(restro));
+                  if (restruantName == name) {
+                    dispatch(addItems(restro));
+                  } else {
+                    setchangeRestruant(<changeRestruantBanner />);
+                  }
                   setBanner(<PriceBanner />);
                 }}
               >
@@ -80,7 +86,11 @@ const CuisineCard = ({ restro }) => {
           <button
             className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
-              dispatch(addItems(restro));
+              if (restruantName == name) {
+                dispatch(addItems(restro));
+              } else {
+                setchangeRestruant(<changeRestruantBanner />);
+              }
               setBanner(<PriceBanner />);
             }}
           >
@@ -89,6 +99,7 @@ const CuisineCard = ({ restro }) => {
         )}
       </div>
       {count > 0 && banner}
+      {restruantName != name && changeRestruant}
     </div>
   );
 };

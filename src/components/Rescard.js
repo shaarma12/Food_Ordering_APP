@@ -1,7 +1,10 @@
 import { RES_IMG } from "../utils/constant";
 import star from "../../images/star.png";
+import { useDispatch } from "react-redux";
+import { resName } from "../utils/cartSlice";
 
 const Rescard = ({ restaurant }) => {
+  const dispatch = useDispatch();
   const { cloudinaryImageId, name, avgRating, cuisines, areaName } =
     restaurant?.info;
   return (
@@ -9,6 +12,9 @@ const Rescard = ({ restaurant }) => {
       <div
         className="mb-5 font-sans hover:scale-y-110 transition-all duration-500 "
         data-testid="resList"
+        onClick={() => {
+          dispatch(resName(name));
+        }}
       >
         <img
           className="w-72 h-52 rounded-3xl drop-shadow-[5px_5px_10px_rgba(8,7,7,1)]"

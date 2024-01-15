@@ -1,13 +1,12 @@
 import { useState } from "react";
 import CuisineCard from "./CuisineCard";
 
-const MenuAccordion = ({ accordion, veg }) => {
+const MenuAccordion = ({ accordion, veg, name }) => {
   const { title, itemCards } = accordion?.card?.card;
   const [show, setshow] = useState(true);
   const vegData = itemCards.filter((i) => {
     return i?.card?.info?.isVeg;
   });
-  console.log("menuaccordion", vegData);
   return (
     <>
       <div className="w-[48rem] mt-5  flex flex-col border-b-[15px] border-gray-200 mr-2">
@@ -25,11 +24,11 @@ const MenuAccordion = ({ accordion, veg }) => {
         </div>
         {show && veg === true
           ? vegData.map((i) => {
-              return <CuisineCard restro={i} />;
+              return <CuisineCard restro={i} name={name} />;
             })
           : show &&
             itemCards.map((i) => {
-              return <CuisineCard restro={i} />;
+              return <CuisineCard restro={i} name={name} />;
             })}
       </div>
     </>
