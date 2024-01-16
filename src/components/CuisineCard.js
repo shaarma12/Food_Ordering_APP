@@ -5,7 +5,7 @@ import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
-import changeRestruantBanner from "./changeRestruantBanner";
+import ChangeRestruantBanner from "./ChangeRestruantBanner";
 
 const CuisineCard = ({ restro, name }) => {
   const [banner, setBanner] = useState();
@@ -72,7 +72,7 @@ const CuisineCard = ({ restro, name }) => {
                   if (restruantName == name) {
                     dispatch(addItems(restro));
                   } else {
-                    setchangeRestruant(<changeRestruantBanner />);
+                    setchangeRestruant(<ChangeRestruantBanner />);
                   }
                   setBanner(<PriceBanner />);
                 }}
@@ -89,7 +89,7 @@ const CuisineCard = ({ restro, name }) => {
               if (restruantName == name) {
                 dispatch(addItems(restro));
               } else {
-                setchangeRestruant(<changeRestruantBanner />);
+                setchangeRestruant(<ChangeRestruantBanner />);
               }
               setBanner(<PriceBanner />);
             }}
@@ -99,7 +99,7 @@ const CuisineCard = ({ restro, name }) => {
         )}
       </div>
       {count > 0 && banner}
-      {restruantName != name && changeRestruant}
+      {count == 0 && changeRestruant}
     </div>
   );
 };

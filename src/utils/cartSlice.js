@@ -39,9 +39,13 @@ const cartSlice = createSlice({
       if (state.restruantName.length != 1)
         state.restruantName.push(action.payload);
     },
+    discardOldItem: (state, action) => {
+      state.restruantName = [];
+    },
   },
 });
 
 export default cartSlice.reducer;
 
-export const { addItems, removeItems, clearCart, resName } = cartSlice.actions;
+export const { addItems, removeItems, clearCart, resName, discardOldItem } =
+  cartSlice.actions;
