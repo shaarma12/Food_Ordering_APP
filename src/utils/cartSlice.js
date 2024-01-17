@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     restruantName: [],
+    restruantBannerClose: false,
   },
   reducers: {
     addItems: (state, action) => {
@@ -42,10 +43,19 @@ const cartSlice = createSlice({
     discardOldItem: (state, action) => {
       state.restruantName = [];
     },
+    resClose: (state, action) => {
+      state.restruantBannerClose = action.payload;
+    },
   },
 });
 
 export default cartSlice.reducer;
 
-export const { addItems, removeItems, clearCart, resName, discardOldItem } =
-  cartSlice.actions;
+export const {
+  addItems,
+  removeItems,
+  clearCart,
+  resName,
+  discardOldItem,
+  resClose,
+} = cartSlice.actions;

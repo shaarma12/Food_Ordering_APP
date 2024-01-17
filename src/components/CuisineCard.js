@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItems, removeItems } from "../utils/cartSlice";
+import { addItems, removeItems, resClose } from "../utils/cartSlice";
 import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
@@ -12,6 +12,9 @@ const CuisineCard = ({ restro, name }) => {
   const [changeRestruant, setchangeRestruant] = useState();
   const dispatch = useDispatch();
   const restruantName = useSelector((store) => store.cart.restruantName);
+  const restruantBannerClose = useSelector(
+    (store) => store.cart.restruantBannerClose
+  );
   const count = useSelector(
     (store) =>
       store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
@@ -74,6 +77,7 @@ const CuisineCard = ({ restro, name }) => {
                     setchangeRestruant(
                       <ChangeRestruantBanner name={name} restro={restro} />
                     );
+                    dispatch(resClose(true));
                   }
                   setBanner(<PriceBanner />);
                 }}
@@ -93,6 +97,7 @@ const CuisineCard = ({ restro, name }) => {
                 setchangeRestruant(
                   <ChangeRestruantBanner name={name} restro={restro} />
                 );
+                dispatch(resClose(true));
               }
               setBanner(<PriceBanner />);
             }}
@@ -102,7 +107,7 @@ const CuisineCard = ({ restro, name }) => {
         )}
       </div>
       {count > 0 && banner}
-      {count == 0 && changeRestruant}
+      {restruantBannerClose == true && count == 0 && changeRestruant}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import {
   addItems,
   clearCart,
   discardOldItem,
+  resClose,
   resName,
 } from "../utils/cartSlice";
 
@@ -17,7 +18,12 @@ const ChangeRestruantBanner = ({ name, restro }) => {
         your cart for adding items from this restaurant?
       </p>
       <div className="mt-7 flex justify-evenly">
-        <button className="mr-6 py-3 px-20 border-2 border-[#60B240] text-[#60B240] font-bold hover:scale-y-105">
+        <button
+          className="mr-6 py-3 px-20 border-2 border-[#60B240] text-[#60B240] font-bold hover:scale-y-105"
+          onClick={() => {
+            dispatch(resClose(false));
+          }}
+        >
           NO
         </button>
         <button
