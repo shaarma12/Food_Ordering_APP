@@ -65,14 +65,15 @@ const CuisineCard = ({ restro, name }) => {
                 -
               </p>
               <p className="mt-2">{count}</p>
-              {console.log(count)}
               <p
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
                   if (restruantName == name) {
                     dispatch(addItems(restro));
                   } else {
-                    setchangeRestruant(<ChangeRestruantBanner />);
+                    setchangeRestruant(
+                      <ChangeRestruantBanner name={name} restro={restro} />
+                    );
                   }
                   setBanner(<PriceBanner />);
                 }}
@@ -89,7 +90,9 @@ const CuisineCard = ({ restro, name }) => {
               if (restruantName == name) {
                 dispatch(addItems(restro));
               } else {
-                setchangeRestruant(<ChangeRestruantBanner />);
+                setchangeRestruant(
+                  <ChangeRestruantBanner name={name} restro={restro} />
+                );
               }
               setBanner(<PriceBanner />);
             }}

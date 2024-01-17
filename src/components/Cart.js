@@ -1,14 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import CuisineCard from "./CuisineCard";
-import { clearCart } from "../utils/cartSlice";
+import { clearCart, discardOldItem } from "../utils/cartSlice";
 import { Link } from "react-router-dom";
 import CartCard from "./CartCard";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-
+  if (cartItems.length == 0) {
+    dispatch(discardOldItem());
+  }
   return (
     <>
       <div className="flex flex-col mt-24 items-center">
@@ -36,6 +37,7 @@ const Cart = () => {
             className="bg-red-400 ml-[40rem] text-white text-lg font-medium p-3 rounded-lg mb-7 hover:scale-y-105 transition-all duration-200"
             onClick={() => {
               dispatch(clearCart());
+              // dispatch(discardOldItem());
             }}
           >
             Clear Cart

@@ -1,8 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { discardOldItem } from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addItems,
+  clearCart,
+  discardOldItem,
+  resName,
+} from "../utils/cartSlice";
 
-const ChangeRestruantBanner = () => {
+const ChangeRestruantBanner = ({ name, restro }) => {
   const dispatch = useDispatch();
   return (
     <div className="p-7  text-sm bg-[#fff] drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] text-black z-20 w-[33rem] fixed h-52 top-[28rem] ml-[5.5rem]">
@@ -19,6 +24,9 @@ const ChangeRestruantBanner = () => {
           className="py-3 px-16 bg-[#60B240] font-bold text-white hover:scale-y-105"
           onClick={() => {
             dispatch(discardOldItem());
+            dispatch(clearCart());
+            dispatch(resName(name));
+            dispatch(addItems(restro));
           }}
         >
           YES,START AFRESH
