@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import OnHoverBill from "./OnHoverBill";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
@@ -61,7 +62,12 @@ const Header = () => {
         <div className="flex items-center">
           {/* cart */}
 
-          <div>
+          <div
+            onMouseOver={() => {
+              <OnHoverBill />;
+              console.log("from bill");
+            }}
+          >
             <Link to="/cart">
               <p className="relative top-14 left-[2.85rem] text-2xl font-semibold text-red-400">
                 {totalQuantity}
