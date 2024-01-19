@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
-import OnHoverBill from "./OnHoverBill";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
-
+  const [onhoverbill, setOnHoverBill] = useState(false);
   const { Login } = useContext(UserContext);
   // Custom Hook Creation that get the data regarding online status.
   const onlineStatus = useStatus();
@@ -64,8 +63,10 @@ const Header = () => {
 
           <div
             onMouseOver={() => {
-              <OnHoverBill />;
-              console.log("from bill");
+              setOnHoverBill(true);
+            }}
+            onMouseOut={() => {
+              setOnHoverBill(false);
             }}
           >
             <Link to="/cart">
