@@ -142,7 +142,7 @@ const Restaurant = () => {
             <MenuAccordion
               key={i?.card?.card?.title}
               veg={veg}
-              name={name}
+              cuis={cuis}
               accordion={i}
               // Lifting the state Up(passing the data from child to parent component using the function) :-
               // open={index === show ? true : false}

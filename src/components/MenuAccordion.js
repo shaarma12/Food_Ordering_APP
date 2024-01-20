@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CuisineCard from "./CuisineCard";
 
-const MenuAccordion = ({ accordion, veg, name }) => {
+const MenuAccordion = ({ accordion, veg, cuis }) => {
   const { title, itemCards } = accordion?.card?.card;
   const [show, setshow] = useState(true);
   const vegData = itemCards.filter((i) => {
@@ -24,11 +24,11 @@ const MenuAccordion = ({ accordion, veg, name }) => {
         </div>
         {show && veg === true
           ? vegData.map((i) => {
-              return <CuisineCard restro={i} name={name} />;
+              return <CuisineCard restro={i} cuis={cuis} />;
             })
           : show &&
             itemCards.map((i) => {
-              return <CuisineCard restro={i} name={name} />;
+              return <CuisineCard restro={i} cuis={cuis} />;
             })}
       </div>
     </>

@@ -13,7 +13,7 @@ const Rescard = ({ restaurant }) => {
         className="mb-5 font-sans hover:scale-y-110 transition-all duration-500 "
         data-testid="resList"
         onClick={() => {
-          dispatch(resName(name));
+          dispatch(resName(restaurant?.info));
         }}
       >
         <img

@@ -7,7 +7,7 @@ import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
 import ChangeRestruantBanner from "./ChangeRestruantBanner";
 
-const CuisineCard = ({ restro, name }) => {
+const CuisineCard = ({ restro, cuis }) => {
   const [banner, setBanner] = useState();
   const [changeRestruant, setchangeRestruant] = useState();
   const dispatch = useDispatch();
@@ -71,11 +71,17 @@ const CuisineCard = ({ restro, name }) => {
               <p
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
-                  if (restruantName == name) {
+                  if (
+                    cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                    restruantName[0]?.name
+                  ) {
                     dispatch(addItems(restro));
                   } else {
                     setchangeRestruant(
-                      <ChangeRestruantBanner name={name} restro={restro} />
+                      <ChangeRestruantBanner
+                        cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                        restro={restro}
+                      />
                     );
                     dispatch(resClose(true));
                   }
@@ -91,11 +97,17 @@ const CuisineCard = ({ restro, name }) => {
           <button
             className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
-              if (restruantName == name) {
+              if (
+                cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                restruantName[0]?.name
+              ) {
                 dispatch(addItems(restro));
               } else {
                 setchangeRestruant(
-                  <ChangeRestruantBanner name={name} restro={restro} />
+                  <ChangeRestruantBanner
+                    cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                    restro={restro}
+                  />
                 );
                 dispatch(resClose(true));
               }
