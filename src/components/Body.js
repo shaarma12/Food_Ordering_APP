@@ -10,11 +10,13 @@ import OfferCorousel from "./OfferCorousel";
 import search from "../../images/search.svg";
 import { useSelector } from "react-redux";
 import PriceBanner from "./PriceBanner";
+import OnHoverBill from "./OnHoverBill";
 
 const Body = () => {
   // Using Context
   const { Login, setChanger } = useContext(UserContext);
   const banner = useSelector((store) => store.cart.items);
+  const bill = useSelector((store) => store.cart.onHoverBill);
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
   const [gridImage, setGridImage] = useState(null);
@@ -160,6 +162,7 @@ const Body = () => {
             );
           })}
         </div>
+        {bill == true && <OnHoverBill />}
       </div>
     </>
   );

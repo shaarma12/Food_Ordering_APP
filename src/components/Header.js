@@ -4,12 +4,13 @@ import bag from "../../images/bag.png";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import OnHoverBill from "./OnHoverBill";
 
 const Header = () => {
   const [title, setTitle] = useState("Login");
-  const [onhoverbill, setOnHoverBill] = useState(false);
   const { Login } = useContext(UserContext);
+  const [onBill, setOnBill] = useState(false);
   // Custom Hook Creation that get the data regarding online status.
   const onlineStatus = useStatus();
 
@@ -21,7 +22,7 @@ const Header = () => {
         {/* Logo */}
         <div>
           <Link to="/">
-            <img className="w-40 " src={Logoimg} alt="Main Logo" />
+            <img className="w-32 ml-32" src={Logoimg} alt="Main Logo" />
           </Link>
         </div>
 
@@ -58,38 +59,39 @@ const Header = () => {
             </li> */}
           </ul>
         </div>
-        <div className="flex items-center">
-          {/* cart */}
+        {/* cart */}
 
-          <div
-            onMouseOver={() => {
-              setOnHoverBill(true);
+        {/* <div > */}
+        <Link
+          to="/cart"
+          onMouseOver={() => {
+            setOnBill(true);
+          }}
+          onMouseOut={() => {
+            setOnBill(false);
+          }}
+          className="h-10 w-14"
+        >
+          <p className="relative top-[1rem] left-[1.4rem] text-lg font-semibold text-red-400">
+            {totalQuantity}
+          </p>
+          <img className="w-16 mb-9 -mt-9" src={bag} alt="Cart" />
+        </Link>
+        {/* </div> */}
+
+        {/* user icon */}
+
+        <div className="mr-14 mt-1">
+          <button
+            onClick={() => {
+              title === "Login" ? setTitle(Login) : setTitle("Login");
             }}
-            onMouseOut={() => {
-              setOnHoverBill(false);
-            }}
+            className="px-4 py-2 ml-5 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
           >
-            <Link to="/cart">
-              <p className="relative top-14 left-[2.85rem] text-2xl font-semibold text-red-400">
-                {totalQuantity}
-              </p>
-              <img className="w-16 mx-5 mb-9" src={bag} alt="Cart" />
-            </Link>
-          </div>
-
-          {/* user icon */}
-
-          <div className="mr-5">
-            <button
-              onClick={() => {
-                title === "Login" ? setTitle(Login) : setTitle("Login");
-              }}
-              className="px-4 py-2 ml-5 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
-            >
-              {title}
-            </button>
-          </div>
+            {title}
+          </button>
         </div>
+        {onBill == true && <OnHoverBill />}
       </div>
     </>
   );
