@@ -24,11 +24,23 @@ const MenuAccordion = ({ accordion, veg, cuis }) => {
         </div>
         {show && veg === true
           ? vegData.map((i) => {
-              return <CuisineCard restro={i} cuis={cuis} />;
+              return (
+                <CuisineCard
+                  key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
+                  restro={i}
+                  cuis={cuis}
+                />
+              );
             })
           : show &&
             itemCards.map((i) => {
-              return <CuisineCard restro={i} cuis={cuis} />;
+              return (
+                <CuisineCard
+                  key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
+                  restro={i}
+                  cuis={cuis}
+                />
+              );
             })}
       </div>
     </>
