@@ -4,7 +4,7 @@ import ItemBill from "./ItemBill";
 const OnHoverBill = () => {
   const data = useSelector((store) => store.cart.items);
   const resData = useSelector((store) => store.cart.restruantName);
-  console.log(resData);
+  let totalBill = 0;
   return (
     <div className="w-[23rem] p-7 text-black border-t-2 border-red-500 absolute top-32 right-48 bg-white shadow-lg shadow-black">
       <div className="flex pb-5 border-b border-black">
@@ -38,6 +38,9 @@ const OnHoverBill = () => {
               price={i?.card?.info?.price}
               defaultPrice={i?.card?.info?.defaultPrice}
               count={i?.count}
+              amount={(value) => {
+                totalBill += value;
+              }}
             />
           );
         })}
@@ -45,7 +48,8 @@ const OnHoverBill = () => {
       <div className="my-4">
         <div className="flex justify-between font-medium">
           <p>Sub total</p>
-          <p className="mr-1">₹ {}</p>
+          {console.log("hum", totalBill)}
+          <p className="mr-1">₹ {totalBill}</p>
         </div>
         <p className="-mt-1 text-xs text-gray-400">Extra charges may apply</p>
       </div>
