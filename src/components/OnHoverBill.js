@@ -18,7 +18,11 @@ const OnHoverBill = () => {
         />
         <div className="ml-6">
           <div>
-            <p className="font-medium text-lg">{resData[0]?.name}</p>
+            <p className="font-medium text-lg">
+              {resData[0]?.name.length > 15
+                ? resData[0]?.name.substring(0, 15) + "..."
+                : resData[0]?.name}
+            </p>
             <p className="-mt-1 font-medium text-sm text-gray-400">
               {resData[0]?.areaName}
             </p>
