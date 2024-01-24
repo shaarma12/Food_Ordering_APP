@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ItemBill from "./ItemBill";
+import { Link } from "react-router-dom";
 const OnHoverBill = () => {
   const data = useSelector((store) => store.cart.items);
   const resData = useSelector((store) => store.cart.restruantName);
-  let totalBill = 0;
+  let totalBill = useSelector((store) => store.cart.onHoverBill);
   return (
-    <div className="w-[23rem] p-7 text-black border-t-2 border-red-500 absolute top-32 right-48 bg-white shadow-lg shadow-black">
+    <div className="cursor-default w-[23rem] p-7 text-black border-t-2 border-red-500 absolute top-32 right-48 bg-white shadow-lg shadow-black">
       <div className="flex pb-5 border-b border-black">
         <img
           className="w-20 h-20"
@@ -28,7 +29,7 @@ const OnHoverBill = () => {
             </p>
           </div>
           <p className="mt-5 font-bold text-xs text-[#7082de]">
-            VIEW FULL MENU
+            <Link to={"/restaurant/" + resData[0]?.id}>VIEW FULL MENU</Link>
           </p>
         </div>
       </div>
@@ -42,9 +43,6 @@ const OnHoverBill = () => {
               price={i?.card?.info?.price}
               defaultPrice={i?.card?.info?.defaultPrice}
               count={i?.count}
-              amount={(value) => {
-                totalBill += value;
-              }}
             />
           );
         })}
@@ -57,9 +55,11 @@ const OnHoverBill = () => {
         </div>
         <p className="-mt-1 text-xs text-gray-400">Extra charges may apply</p>
       </div>
-      <button className="bg-orange-500 text-white font-bold py-3 w-[19.3rem] mt-1 mb-1">
-        CHECKOUT
-      </button>
+      <Link to="/cart">
+        <button className="bg-orange-500 text-white font-bold py-3 w-[19.3rem] mt-1 mb-1">
+          CHECKOUT
+        </button>
+      </Link>
     </div>
   );
 };

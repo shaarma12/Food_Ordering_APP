@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     items: [],
     restruantName: [],
     restruantBannerClose: false,
+    onHoverBill: 0,
   },
   reducers: {
     addItems: (state, action) => {
@@ -46,6 +47,9 @@ const cartSlice = createSlice({
     resClose: (state, action) => {
       state.restruantBannerClose = action.payload;
     },
+    hoverBill: (state, action) => {
+      state.onHoverBill = action.payload;
+    },
   },
 });
 
@@ -58,4 +62,5 @@ export const {
   resName,
   discardOldItem,
   resClose,
+  hoverBill,
 } = cartSlice.actions;

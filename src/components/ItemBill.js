@@ -1,11 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 
-const ItemBill = ({ name, isVeg, price, defaultPrice, count, amount }) => {
+const ItemBill = ({ name, isVeg, price, defaultPrice, count }) => {
   const Price = (price ? price / 100 : defaultPrice / 100) * count;
-  amount(Price);
   return (
     <div className="flex mt-2 mb-2">
       {isVeg ? (

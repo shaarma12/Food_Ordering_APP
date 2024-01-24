@@ -70,12 +70,12 @@ const Header = () => {
           onMouseOut={() => {
             setOnBill(false);
           }}
-          className="h-10 w-14"
         >
-          <p className="relative top-[1rem] left-[1.4rem] text-lg font-semibold text-red-400">
+          <p className="relative top-[3.5rem] left-[1.5rem] text-lg font-semibold text-red-400">
             {totalQuantity}
           </p>
-          <img className="w-16 mb-9 -mt-9" src={bag} alt="Cart" />
+          <img className="w-16 mb-9" src={bag} alt="Cart" />
+          {onBill == true && <OnHoverBill />}
         </Link>
         {/* </div> */}
 
@@ -91,7 +91,6 @@ const Header = () => {
             {title}
           </button>
         </div>
-        {onBill == true && <OnHoverBill />}
       </div>
     </>
   );
