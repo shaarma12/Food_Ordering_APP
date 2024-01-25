@@ -60,7 +60,7 @@ const OnHoverBill = () => {
             </p>
           </div>
           <Link to="/cart">
-            <button className="bg-orange-500 text-white font-bold py-3 w-[19.3rem] mt-1 mb-1 hover:drop-shadow-lg">
+            <button className="bg-orange-500 text-white font-bold py-3 w-[19.3rem] mt-1 mb-1 hover:drop-shadow-xl">
               CHECKOUT
             </button>
           </Link>
