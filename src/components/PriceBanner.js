@@ -22,7 +22,7 @@ const PriceBanner = ({ actual }) => {
     >
       <p className="font-bold">
         {quantity}
-        {quantity > 1 ? " items" : " item"} | ₹{value}
+        {quantity > 1 ? " items" : " item"} | ₹{value.toFixed(2)}
       </p>
       <div className="flex">
         <p className="font-bold mr-2">VIEW CART</p>

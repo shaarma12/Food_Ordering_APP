@@ -52,8 +52,7 @@ const OnHoverBill = () => {
           <div className="my-4">
             <div className="flex justify-between font-medium">
               <p>Sub total</p>
-              {console.log("hum", totalBill)}
-              <p className="mr-1">₹ {totalBill}</p>
+              <p className="mr-1">₹ {totalBill.toFixed(2)}</p>
             </div>
             <p className="-mt-1 text-xs text-gray-400">
               Extra charges may apply

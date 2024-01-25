@@ -43,7 +43,7 @@ const Cart = () => {
             Clear Cart
           </button>
         )}
-        <div className="border-t-2 mb-4">
+        <div>
           {cartItems.map((item) => (
             <CartCard restro={item} key={item.card.info.id} />
           ))}

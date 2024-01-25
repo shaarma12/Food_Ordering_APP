@@ -16,7 +16,7 @@ const ItemBill = ({ name, isVeg, price, defaultPrice, count }) => {
         <p className="mx-1">x</p>
         <p>{count}</p>
       </p>
-      <p className="text-sm font-medium  text-gray-500">₹{Price}</p>
+      <p className="text-sm font-medium  text-gray-500">₹{Price.toFixed(2)}</p>
     </div>
   );
 };
