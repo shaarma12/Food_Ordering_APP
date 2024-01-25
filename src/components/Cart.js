@@ -6,7 +6,11 @@ import CartCard from "./CartCard";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
+  const bill = useSelector((store) => store.cart.onHoverBill);
   const dispatch = useDispatch();
+  const GST = 18.31;
+  const shipping = 50.0;
+  const totalBill = (bill + GST + shipping).toFixed(2);
   if (cartItems.length == 0) {
     dispatch(discardOldItem());
   }
@@ -43,11 +47,42 @@ const Cart = () => {
             Clear Cart
           </button>
         )}
-        <div>
+        <div className="max-h-[50rem] overflow-y-scroll no-scrollbar">
           {cartItems.map((item) => (
             <CartCard restro={item} key={item.card.info.id} />
           ))}
         </div>
+        <div className="ml-[50rem] mt-3  font-semibold">
+          <div className="flex w-[22rem] justify-between border-b border-black py-3">
+            <p>Subtotal :</p>
+            <p>₹ {bill.toFixed(2)}</p>
+          </div>
+          <div className="flex w-[22rem] justify-between border-b border-black py-3">
+            <p>Shipping :</p>
+            <p>₹ {shipping.toFixed(2)}</p>
+          </div>
+          <div className="flex w-[22rem] justify-between border-b border-black py-3">
+            <p>GST Charges :</p>
+            <p>₹ {GST}</p>
+          </div>
+          <div className="flex w-[22rem] justify-between py-3 font-bold text-lg">
+            <p>Grand Total :</p>
+            <p className="text-2xl -mt-1">₹ {totalBill}</p>
+          </div>
+        </div>
+        {totalBill > 1000.0 && (
+          <div>
+            <p>
+              Congrats,You're Eligible for{" "}
+              <span className="font-semibold">Free</span>
+              <span className="ml-5 text-lg">⛟</span>
+              <p className="font-semibold">Shipping</p>
+            </p>
+          </div>
+        )}
+        <button className="p-4 bg>-orange-500 text-white font-bold text-lg rounded-md ml-[62rem] hover:drop-shadow-xl mt-2">
+          Place Your Order
+        </button>
       </div>
     </>
   );
