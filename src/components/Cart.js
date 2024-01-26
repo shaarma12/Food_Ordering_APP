@@ -6,7 +6,14 @@ import CartCard from "./CartCard";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const bill = useSelector((store) => store.cart.onHoverBill);
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
+  let bill = 0;
+  cartItems.map((i) => {
+    let value = i.card.info.price
+      ? i.card.info.price / 100
+      : i.card.info.defaultPrice / 100;
+    return (bill += i.count * value);
+  });
   const dispatch = useDispatch();
   const freeShippingAmount = 1000.0;
   const GST = 18.31;
@@ -39,15 +46,28 @@ const Cart = () => {
           </div>
         ) : (
           <div>
-            <button
-              className="bg-red-400 ml-[40rem] text-white text-lg font-medium p-3 rounded-lg mb-7 hover:scale-y-105 transition-all duration-200"
-              onClick={() => {
-                dispatch(clearCart());
-                // dispatch(discardOldItem());
-              }}
-            >
-              Clear Cart
-            </button>
+            <div className="flex w-[70rem] mb-8">
+              <div className="flex justify-center ml-7">
+                <p className="text-4xl font-semibold">
+                  Your Cart {"{" + totalQuantity + " items" + "}"}
+                </p>
+              </div>
+              <button
+                className="bg-red-400 text-white text-lg font-medium px-3 py-2 rounded-lg mb-7 ml-[41rem] hover:scale-y-105 transition-all duration-200"
+                onClick={() => {
+                  dispatch(clearCart());
+                  // dispatch(discardOldItem());
+                }}
+              >
+                Clear Cart
+              </button>
+            </div>
+            <div className="flex font-semibold justify-between border-b border-gray-300 w-[70rem] ml-8 pb-3">
+              <p className="ml-2">Item</p>
+              <p className="ml-[35.5rem]">Price</p>
+              <p className="-ml-3">Quantity</p>
+              <p className="mr-3">Total</p>
+            </div>
             <div className="max-h-[50rem] overflow-y-scroll no-scrollbar">
               {cartItems.map((item) => (
                 <CartCard restro={item} key={item.card.info.id} />
@@ -59,7 +79,7 @@ const Cart = () => {
                   <p>Subtotal :</p>
                   <p>₹ {bill.toFixed(2)}</p>
                 </div>
-                {totalBill < freeShippingAmount && (
+                {bill.toFixed(2) < freeShippingAmount && (
                   <div className="flex w-[22rem] justify-between border-b border-black py-3">
                     <p>Shipping :</p>
                     <p>₹ {shipping.toFixed(2)}</p>
@@ -74,7 +94,7 @@ const Cart = () => {
                   <p className="text-2xl -mt-1">₹ {totalBill}</p>
                 </div>
               </div>
-              {totalBill > freeShippingAmount && (
+              {bill.toFixed(2) > freeShippingAmount && (
                 <div className="ml-[55rem] border-b-4 border-green-600">
                   <p className="mb-7">
                     Congrats,You're Eligible for{" "}

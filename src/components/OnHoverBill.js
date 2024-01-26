@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 const OnHoverBill = () => {
   const data = useSelector((store) => store.cart.items);
   const resData = useSelector((store) => store.cart.restruantName);
-  let totalBill = useSelector((store) => store.cart.onHoverBill);
+  let totalBill = 0;
+  data.map((i) => {
+    let value = i?.card?.info?.price
+      ? i?.card?.info?.price / 100
+      : i?.card?.info?.defaultPrice / 100;
+    return (totalBill += i.count * value);
+  });
   return (
     <div className="cursor-default w-[23rem] p-7 text-black border-t-2 border-red-500 absolute top-32 right-48 bg-white shadow-lg shadow-black">
       {data.length > 0 ? (
@@ -35,7 +41,7 @@ const OnHoverBill = () => {
               </p>
             </div>
           </div>
-          <div className="mt-5 -ml-1 max-h-56 overflow-y-scroll border-b-2 border-dotted border-gray-400">
+          <div className="mt-5 -ml-1 max-h-56 no-scrollbar overflow-y-scroll border-b-2 border-dotted border-gray-400">
             {data.map((i) => {
               return (
                 <ItemBill
