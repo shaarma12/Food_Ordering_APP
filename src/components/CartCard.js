@@ -4,11 +4,9 @@ import { addItems, removeItems } from "../utils/cartSlice";
 import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
-import PriceBanner from "./PriceBanner";
 
 const CartCard = ({ restro }) => {
   const dispatch = useDispatch();
-  const [banner, setBanner] = useState();
   const value = restro.card.info.price
     ? restro.card.info.price / 100
     : restro.card.info.defaultPrice / 100;
@@ -65,7 +63,6 @@ const CartCard = ({ restro }) => {
               className="mr-2 mb-2 text-2xl"
               onClick={() => {
                 dispatch(addItems(restro));
-                setBanner(<PriceBanner />);
               }}
             >
               +
@@ -78,7 +75,6 @@ const CartCard = ({ restro }) => {
           className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
           onClick={() => {
             dispatch(addItems(restro));
-            setBanner(<PriceBanner />);
           }}
         >
           ADD
