@@ -10,6 +10,7 @@ const Cart = () => {
   const totalQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
   const [popup, setPopup] = useState();
   const [indication,setIndication] = useState(false);
+  const [open,setOpen] = useState(false);
   let bill = 0;
   cartItems.map((i) => {
     let value = i.card.info.price
@@ -112,15 +113,19 @@ const Cart = () => {
               }}>
                 Place Your Order
               </button>:<button className="mt-5 px-16 py-4 bg-orange-500 text-white font-bold text-lg rounded-md ml-[55.5rem] hover:drop-shadow-xl hover:bg-opacity-90"onClick={()=>{
-               setPopup(<Cartpopup/>)
+               setPopup(<Cartpopup data = {(value)=>{
+                setOpen(value);
+                setIndication(value);
+              }}/>)
                setIndication(true)
+               setOpen(true);
               }}>
                 Place Your Order
               </button>}
             </div>
           </div>
         )}
-        {popup}
+        {open==true&&popup}
       </div>
     </>
   );

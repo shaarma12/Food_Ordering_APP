@@ -14,6 +14,7 @@ import { useState } from "react";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Confirmation from "./components/Confirmation";
 const App = () => {
   const [changer, setChanger] = useState();
 
@@ -83,6 +84,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path:"/order-confirmation",
+        element:<Confirmation/>,
       },
     ],
     errorElement: <Error />,
