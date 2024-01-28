@@ -104,7 +104,7 @@ const Cart = () => {
                   </p>
                 </div>
               )}
-              <button className="mt-5 px-16 py-4 bg-orange-500 text-white font-bold text-lg rounded-md ml-[55.5rem] hover:drop-shadow-xl">
+              <button className="mt-5 px-16 py-4 bg-orange-500 text-white font-bold text-lg rounded-md ml-[55.5rem] hover:drop-shadow-xl hover:bg-opacity-90">
                 Place Your Order
               </button>
             </div>

@@ -37,9 +37,9 @@ const CartCard = ({ restro }) => {
         </p>
         <div className="text-sm text-gray-400 w-[25rem]">
           <p>
-            {restro.card.info.description.length > 100
-              ? restro.card.info.description.substring(0, 100) + "..."
-              : restro.card.info.description}
+            {restro?.card?.info?.description?.length > 100
+              ? restro?.card?.info?.description.substring(0, 100) + "..."
+              : restro?.card?.info?.description}
           </p>
         </div>
       </div>
