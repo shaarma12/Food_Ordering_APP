@@ -3,10 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart, discardOldItem } from "../utils/cartSlice";
 import { Link } from "react-router-dom";
 import CartCard from "./CartCard";
+import Cartpopup from "./Cartpopup";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const totalQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
+  const [popup, setPopup] = useState();
+  const [indication,setIndication] = useState(false);
   let bill = 0;
   cartItems.map((i) => {
     let value = i.card.info.price
@@ -104,12 +107,20 @@ const Cart = () => {
                   </p>
                 </div>
               )}
-              <button className="mt-5 px-16 py-4 bg-orange-500 text-white font-bold text-lg rounded-md ml-[55.5rem] hover:drop-shadow-xl hover:bg-opacity-90">
+              {indication==true?<button className="mt-5 px-16 py-4 bg-orange-300 cursor-default  text-white font-bold text-lg rounded-md ml-[55.5rem]"onClick={()=>{
+               setPopup(<Cartpopup/>)
+              }}>
                 Place Your Order
-              </button>
+              </button>:<button className="mt-5 px-16 py-4 bg-orange-500 text-white font-bold text-lg rounded-md ml-[55.5rem] hover:drop-shadow-xl hover:bg-opacity-90"onClick={()=>{
+               setPopup(<Cartpopup/>)
+               setIndication(true)
+              }}>
+                Place Your Order
+              </button>}
             </div>
           </div>
         )}
+        {popup}
       </div>
     </>
   );
