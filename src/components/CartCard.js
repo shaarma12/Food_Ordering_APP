@@ -4,8 +4,11 @@ import { addItems, removeItems } from "../utils/cartSlice";
 import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
+import { Link } from "react-router-dom";
 
 const CartCard = ({ restro }) => {
+  const res = useSelector(store=>store.cart.restruantName)
+  console.log("dsfe",res)
   const dispatch = useDispatch();
   const value = restro.card.info.price
     ? restro.card.info.price / 100
@@ -16,13 +19,15 @@ const CartCard = ({ restro }) => {
       data-testid="cuisine"
     >
       <div>
+        <Link to={"/restaurant/"+res[0]?.id}>
         <img
           className="min-w-[140] max-w-[130] h-28 rounded-xl cursor-pointer"
           src={CUIS_IMG + restro?.card?.info?.imageId}
           alt="Image not found!"
         />
+        </Link>
       </div>
-      <div className="">
+      <div>
         <p className="flex font-semibold text-lg text-gray-800">
           {restro.card.info.name.length > 35
             ? restro.card.info.name.substring(0, 35) + "..."

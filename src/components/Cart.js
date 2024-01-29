@@ -60,7 +60,7 @@ const Cart = () => {
                 className="bg-red-400 text-white text-lg font-medium px-3 py-2 rounded-lg mb-7 ml-[41rem] hover:scale-y-105 transition-all duration-200"
                 onClick={() => {
                   dispatch(clearCart());
-                  // dispatch(discardOldItem());
+                  dispatch(discardOldItem());
                 }}
               >
                 Clear Cart

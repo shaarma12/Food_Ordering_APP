@@ -17,6 +17,7 @@ const OnHoverBill = () => {
       {data.length > 0 ? (
         <div>
           <div className="flex pb-5 border-b border-black">
+            <Link to={"/restaurant/" + resData[0]?.id}>
             <img
               className="w-20 h-20"
               alt="OnHoverBill restaurant Image"
@@ -25,6 +26,7 @@ const OnHoverBill = () => {
                 resData[0]?.cloudinaryImageId
               }
             />
+            </Link>
             <div className="ml-6">
               <div>
                 <p className="font-medium text-lg">
