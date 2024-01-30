@@ -73,7 +73,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="p-2 -ml-6 border-y-2 border-r-2 border-black rounded-tr-full rounded-br-full  font-medium bg-black text-white"
+            className="p-2 -ml-6 border-y-2 border-r-2 border-black rounded-tr-full rounded-br-full font-medium bg-black text-white"
             onClick={() => {
               const searching = rest.filter((i) => {
                 return i.info.name.toLowerCase().includes(text.toLowerCase());
