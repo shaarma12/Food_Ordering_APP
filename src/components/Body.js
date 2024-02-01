@@ -51,7 +51,7 @@ const Body = () => {
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
-      <div className="flex flex-col items-center w-[94.5rem]">
+      <div className="flex flex-col items-center">
         {banner.length > 0 && <PriceBanner />}
         {/* <input
           className="m-5 mr-48 p-1"
