@@ -6,4 +6,4 @@ export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.693473&lng=77.297535&restaurantId=";
 export const ABOUT_API = "https://api.github.com/users/shaarma12";
 export const RES_API =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.693473&lng=77.297535&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5334&lng=77.2253&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";

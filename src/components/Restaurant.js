@@ -41,7 +41,7 @@ const Restaurant = () => {
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
-        <div className="flex justify-between">
+        <div className="flex justify-between w-[46rem]">
           <div>
             <p className="text-xl font-bold font-sans pb-2">{name}</p>
             <p className="text-sm text-slate-500">{cuisines.join(", ")}</p>
