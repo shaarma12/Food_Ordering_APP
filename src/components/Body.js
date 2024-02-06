@@ -2,48 +2,56 @@ import React, { useContext, useEffect, useState } from "react";
 import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { RES_API } from "../utils/constant";
 import { DiscountInfo } from "./Rescard";
 import UserContext from "../utils/UserContext";
 import GridCards from "./GridCards";
 import OfferCorousel from "./OfferCorousel";
 import search from "../../images/search.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PriceBanner from "./PriceBanner";
 
 const Body = () => {
   // Using Context
   const { Login, setChanger } = useContext(UserContext);
   const banner = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
   const [gridImage, setGridImage] = useState(null);
   const [filterlist, setFilterlist] = useState([]);
   useEffect(() => {
-    fetchData();
+    geolocation();
   }, []);
 
-  const fetchData = async () => {
-    const url = await fetch(RES_API);
+  const geolocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      fetchData(latitude, longitude);
+    })
+  }
+
+  const fetchData = async (latitude, longitude) => {
+    const url = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
     const response = await url.json();
 
     setRest(
       !gridImage?.cards[0]?.card?.card?.header?.title
         ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+          ?.restaurants
         : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+          ?.restaurants
     );
     setFilterlist(
       !gridImage?.cards[0]?.card?.card?.header?.title
         ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+          ?.restaurants
         : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+          ?.restaurants
     );
     setGridImage(response?.data);
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
   };
+
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
 
