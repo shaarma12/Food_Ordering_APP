@@ -4,7 +4,7 @@ import bag from "../../images/bag.png";
 import { Link } from "react-router-dom";
 import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import OnHoverBill from "./OnHoverBill";
 
 const Header = () => {
