@@ -137,18 +137,18 @@ const Restaurant = () => {
             </div>
           </div>
         </div>
-        {filterAccordion.map((i, index) => {
+        {filterAccordion.map((i) => {
           return (
             <MenuAccordion
               key={i?.card?.card?.title}
               veg={veg}
               cuis={cuis}
               accordion={i}
-              // Lifting the state Up(passing the data from child to parent component using the function) :-
-              // open={index === show ? true : false}
-              // setOpen={() => {
-              //   setShow(index);
-              // }}
+            // Lifting the state Up(passing the data from child to parent component using the function) :-
+            // open={index === show ? true : false}
+            // setOpen={() => {
+            //   setShow(index);
+            // }}
             />
           );
         })}
