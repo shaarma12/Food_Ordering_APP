@@ -27,6 +27,7 @@ const Body = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       fetchData(latitude, longitude);
+      fetchAddressData(latitude, longitude);
     })
   }
 
@@ -52,6 +53,11 @@ const Body = () => {
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
   };
 
+  const fetchAddressData = async (longitude, latitude) => {
+    const url = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${longitude},${latitude}`);
+    const result = await url.json();
+    console.log(result);
+  }
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
 
