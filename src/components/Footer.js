@@ -16,7 +16,7 @@ const Footer = () => {
             <img className="w-56" src={Logoimg} alt="FooterImg" />
           </Link>
           <p className="relative bottom-10 ml-16 text-lg text-slate-500">
-            &#169; 2023 Sharma Technologies <br></br> Pvt Ltd.
+            &#169; 2024 Sharma Technologies <br></br> Pvt Ltd.
           </p>
         </div>
         <div className="m-16">
