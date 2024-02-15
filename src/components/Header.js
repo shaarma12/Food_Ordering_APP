@@ -16,7 +16,6 @@ const Header = () => {
 
   const cartItem = useSelector((store) => store.cart.items);
   const addressDetails = useSelector((store) => store.address.name);
-  const { county, state, country } = addressDetails;
   const totalQuantity = cartItem.reduce((acc, item) => acc + item.count, 0);
   return (
     <>
@@ -83,15 +82,10 @@ const Header = () => {
 
         {/* user icon */}
 
-        <div className="mr-14 mt-1">
-          <button
-            onClick={() => {
-              title === "Login" ? setTitle(Login) : setTitle("Login");
-            }}
-            className="px-4 py-2 ml-5 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 drop-shadow-xl "
-          >
-            {title}
-          </button>
+        <div className="mr-10 mt-1 flex relative left-6">
+          <p className="mr-2 font-bold text-lg border-b-2 mb-1 border-black">{addressDetails?.county.replace("Tehsil", "")}</p>
+          <p className="mr-1 text-lg text-[#686b78]">{addressDetails?.state},</p>
+          <p className="text-lg text-[#686b78]">{addressDetails?.country}</p>
         </div>
       </div>
     </>
