@@ -16,7 +16,6 @@ const Body = () => {
   const banner = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const [rest, setRest] = useState([]);
-  const [place, setPlace] = useState();
   const [text, setText] = useState("");
   const [gridImage, setGridImage] = useState(null);
   const [filterlist, setFilterlist] = useState([]);
@@ -54,13 +53,9 @@ const Body = () => {
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
   };
 
-  const fetchAddressData = async (longitude, latitude) => {
-    const long = longitude.toString();
-    const latit = latitude.toString();
-    const url = await fetch("https://geocode.maps.co/reverse?lat=" + latit + "&lon=" + long + "&api_key=65ccf42560a02876303330moh6024eb");
+  const fetchAddressData = async (latitude, longitude) => {
+    const url = await fetch(`https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&api_key=65ccf42560a02876303330moh6024eb`);
     const result = await url.json();
-    // setPlace(result);
-    console.log("place", result);
   }
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
