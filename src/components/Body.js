@@ -9,6 +9,7 @@ import OfferCorousel from "./OfferCorousel";
 import search from "../../images/search.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PriceBanner from "./PriceBanner";
+import { displayAdress } from "../utils/addressSlice";
 
 const Body = () => {
   // Using Context
@@ -56,6 +57,7 @@ const Body = () => {
   const fetchAddressData = async (latitude, longitude) => {
     const url = await fetch(`https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&api_key=65ccf42560a02876303330moh6024eb`);
     const result = await url.json();
+    dispatch(displayAdress(result?.address));
   }
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component

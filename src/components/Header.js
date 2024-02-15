@@ -15,6 +15,8 @@ const Header = () => {
   const onlineStatus = useStatus();
 
   const cartItem = useSelector((store) => store.cart.items);
+  const addressDetails = useSelector((store) => store.address.name);
+  const { county, state, country } = addressDetails;
   const totalQuantity = cartItem.reduce((acc, item) => acc + item.count, 0);
   return (
     <>
