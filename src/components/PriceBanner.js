@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const PriceBanner = ({ actual }) => {
   const count = useSelector((store) => store.cart.items);
+
   const quantity = count.reduce((acc, i) => (acc += i.count), 0);
+
   let value = 0;
+
   count.map((i) => {
     let c = i?.card?.info?.price
       ? i?.card?.info?.price / 100
