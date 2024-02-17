@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import Logoimg from "../../images/Logoimg.png";
 import bag from "../../images/bag.png";
 import { Link } from "react-router-dom";
-import useStatus from "../utils/usestatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import OnHoverBill from "./OnHoverBill";
@@ -12,7 +11,7 @@ const Header = () => {
   const { Login } = useContext(UserContext);
   const [onBill, setOnBill] = useState(false);
   // Custom Hook Creation that get the data regarding online status.
-  const onlineStatus = useStatus();
+  // const onlineStatus = useStatus();
 
   const cartItem = useSelector((store) => store.cart.items);
   const addressDetails = useSelector((store) => store.address.name);
