@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import OnHoverBill from "./OnHoverBill";
 
 const Header = () => {
-  const [title, setTitle] = useState("Login");
+  // const [title, setTitle] = useState("Login");
   const { Login } = useContext(UserContext);
   const [onBill, setOnBill] = useState(false);
   // Custom Hook Creation that get the data regarding online status.
