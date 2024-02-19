@@ -8,3 +8,4 @@ export const MENU_API =
 export const ABOUT_API = "https://api.github.com/users/shaarma12";
 export const RES_API =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5220971&lng=77.2101534&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const Coupon_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_28,h_28/";

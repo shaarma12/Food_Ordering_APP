@@ -31,6 +31,7 @@ const Restaurant = () => {
     id,
   } = cuis?.data?.cards[0]?.card?.card?.info;
 
+  const { offers } = cuis?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
   const { cards } = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   const filterAccordion = cards.filter((i) => {
     return (
@@ -71,41 +72,12 @@ const Restaurant = () => {
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
           <div className="flex mt-5 relative right-2 pb-10 overflow-x-scroll no-scrollbar">
-            <Coupon
-              copon="USE JUMBO"
-              off="20% OFF UPTO ₹60"
-              para="ON SELCT ITEMS"
-            />
-            <Coupon
-              copon="USE TRYNEW"
-              off="FLAT ₹125 OFF"
-              para="ON ABOVE ₹159"
-            />
-            <Coupon
-              copon="NO CODE REQUIRED"
-              off="Free Choco Lava Cake"
-              para="ON ABOVE ₹599"
-            />
-            <Coupon
-              copon="NO CODE REQUIRED"
-              off="Free Choco Lava Cake"
-              para="ON ABOVE ₹599"
-            />
-            <Coupon
-              copon="NO CODE REQUIRED"
-              off="Free Choco Lava Cake"
-              para="ON ABOVE ₹599"
-            />
-            <Coupon
-              copon="NO CODE REQUIRED"
-              off="Free Choco Lava Cake"
-              para="ON ABOVE ₹599"
-            />
-            <Coupon
-              copon="NO CODE REQUIRED"
-              off="Free Choco Lava Cake"
-              para="ON ABOVE ₹599"
-            />
+            {offers.map((i) => {
+              return <Coupon
+                key={i.offerIds}
+                values={i}
+              />
+            })}
           </div>
           <div className="border-b-[1.5px] border-gray-300">
             <div className="flex mt-2 mb-6">
