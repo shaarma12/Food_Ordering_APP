@@ -72,14 +72,14 @@ const CuisineCard = ({ restro, cuis }) => {
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
                   if (
-                    cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                    cuis?.data?.cards[2]?.card?.card?.info?.name ==
                     restruantName[0]?.name
                   ) {
                     dispatch(addItems(restro));
                   } else {
                     setchangeRestruant(
                       <ChangeRestruantBanner
-                        cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                        cuis={cuis?.data?.cards[2]?.card?.card?.info}
                         restro={restro}
                       />
                     );
@@ -98,14 +98,14 @@ const CuisineCard = ({ restro, cuis }) => {
             className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
               if (
-                cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                cuis?.data?.cards[2]?.card?.card?.info?.name ==
                 restruantName[0]?.name
               ) {
                 dispatch(addItems(restro));
               } else {
                 setchangeRestruant(
                   <ChangeRestruantBanner
-                    cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                    cuis={cuis?.data?.cards[2]?.card?.card?.info}
                     restro={restro}
                   />
                 );
