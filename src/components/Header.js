@@ -82,7 +82,7 @@ const Header = () => {
         {/* user icon */}
 
         <div className="mr-10 mt-1 flex relative left-6">
-          <p className="mr-2 font-bold text-lg border-b-2 mb-1 border-black">{addressDetails?.county.replace("Tehsil", "")}</p>
+          <p className="mr-2 font-bold text-lg border-b-2 mb-1 border-black">{addressDetails?.county ? addressDetails?.county.replace("Tehsil", "") : addressDetails?.suburb.length > 9 ? (addressDetails?.suburb.slice(0, 9) + "...") : addressDetails?.suburb}</p>
           <p className="mr-1 text-lg text-[#686b78]">{addressDetails?.state},</p>
           <p className="text-lg text-[#686b78]">{addressDetails?.country}</p>
         </div>
