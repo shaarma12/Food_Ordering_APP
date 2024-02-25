@@ -155,7 +155,7 @@ const Body = () => {
           </h2>
           <div className="flex rounded-2xl w-[75rem] overflow-x-scroll no-scrollbar">
             {restrauntChains.map((i) => {
-              return <Link className="" to={`/restaurant/` + i?.info?.id} key={i?.info?.id}><ResChain restaurant={i} />
+              return <Link to={`/restaurant/` + i?.info?.id} key={i?.info?.id}><ResChain restaurant={i} />
               </Link>
             })}
           </div>
