@@ -10,6 +10,7 @@ import search from "../../images/search.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PriceBanner from "./PriceBanner";
 import { displayAdress } from "../utils/addressSlice";
+import ResChain, { DiscountChainInfo } from "./ResChain";
 
 const Body = () => {
   // Using Context
@@ -18,6 +19,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
+  const [restrauntChains, setRestrauntChains] = useState();
   const [gridImage, setGridImage] = useState(null);
   const [filterlist, setFilterlist] = useState([]);
   useEffect(() => {
@@ -50,6 +52,7 @@ const Body = () => {
         : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
     );
+    setRestrauntChains(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setGridImage(response?.data);
     // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
   };
@@ -61,7 +64,7 @@ const Body = () => {
   }
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
-
+  console.log("Top Restraunt Chains :-", restrauntChains);
   const DiscountBanner = DiscountInfo(Rescard);
   if (rest?.length === 0) return <Shimmer />;
   return (
@@ -146,6 +149,17 @@ const Body = () => {
             </div>
           </div>
         )}
+        <div className="flex flex-col w-[75rem] border-t-2 mb-12">
+          <h2 className="mt-11 text-2xl font-bold text-gray-900 mb-5">
+            Top restaurant chains in Delhi
+          </h2>
+          <div className="flex rounded-2xl w-[75rem] overflow-x-scroll no-scrollbar">
+            {restrauntChains.map((i) => {
+              return <Link className="" to={`/restaurant/` + i?.info?.id} key={i?.info?.id}><ResChain restaurant={i} />
+              </Link>
+            })}
+          </div>
+        </div>
         <div className="border-t-2">
           <h2 className="mt-6 text-2xl font-bold text-gray-900">
             Restaurants with online food delivery in Delhi
@@ -166,7 +180,7 @@ const Body = () => {
           {filterlist?.map((i) => {
             return (
               <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
-                {JSON.stringify(i?.info?.aggregatedDiscountInfoV2) === "{}" ? (
+                {i?.info?.aggregatedDiscountInfoV2 === "{}" ? (
                   <Rescard restaurant={i} />
                 ) : (
                   <DiscountBanner restaurant={i} />
