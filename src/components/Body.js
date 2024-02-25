@@ -149,7 +149,7 @@ const Body = () => {
             </div>
           </div>
         )}
-        <div className="flex flex-col w-[75rem] border-t-2 mb-12">
+        <div className="flex flex-col w-[75rem] border-t-2 mb-7 border-b-2 pb-12">
           <h2 className="mt-11 text-2xl font-bold text-gray-900 mb-5">
             Top restaurant chains in Delhi
           </h2>
@@ -160,8 +160,8 @@ const Body = () => {
             })}
           </div>
         </div>
-        <div className="border-t-2">
-          <h2 className="mt-6 text-2xl font-bold text-gray-900">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 -ml-2">
             Restaurants with online food delivery in Delhi
           </h2>
           <button
@@ -171,7 +171,7 @@ const Body = () => {
               });
               setFilterlist(change);
             }}
-            className="mt-6 px-3 py-2 rounded-lg font-medium bg-red-400 text-white hover:scale-y-110 transition-all duration-300 mr-[68rem] drop-shadow-xl"
+            className="mt-6 py-2 px-4 rounded-3xl font-medium border-[2px] border-[#E2E2E7] hover:scale-y-110 transition-all duration-300 mr-[68rem] -ml-2 drop-shadow-xl"
           >
             Top Rated
           </button>
