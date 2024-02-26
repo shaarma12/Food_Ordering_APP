@@ -71,10 +71,10 @@ const Header = () => {
             setOnBill(false);
           }}
         >
-          <p className="relative top-[3.5rem] left-[1.5rem] text-lg font-semibold text-red-400">
+          <p className="relative md:top-[3.5rem] top-[3.2rem] md:left-[1.5rem] left-[0.15rem] md:text-lg text-2xl font-semibold text-red-400">
             {totalQuantity}
           </p>
-          <img className="w-16 mb-9" src={bag} alt="Cart" />
+          <img className="md:w-16 w-20 mb-9 md:-ml-0 -ml-5" src={bag} alt="Cart" />
           {onBill == true && <OnHoverBill />}
         </Link>
         {/* </div> */}
@@ -82,9 +82,9 @@ const Header = () => {
         {/* user icon */}
 
         <div className="mr-10 mt-1 flex relative left-6">
-          <p className="mr-2 font-bold text-lg border-b-2 mb-1 border-black">{addressDetails?.county ? addressDetails?.county.replace("Tehsil", "") : addressDetails?.suburb.length > 9 ? (addressDetails?.suburb.slice(0, 9) + "...") : addressDetails?.suburb}</p>
-          <p className="mr-1 text-lg text-[#686b78]">{addressDetails?.state},</p>
-          <p className="text-lg text-[#686b78]">{addressDetails?.country}</p>
+          <p className="mr-2 font-bold md:text-lg text-xl border-b-2 mb-1 border-black">{addressDetails?.county ? addressDetails?.county.replace("Tehsil", "") : addressDetails?.suburb.length > 9 ? (addressDetails?.suburb.slice(0, 9) + "...") : addressDetails?.suburb}</p>
+          <p className="mr-1 md:text-lg text-xl text-[#686b78]">{addressDetails?.state},</p>
+          <p className="md:text-lg text-xl text-[#686b78]">{addressDetails?.country}</p>
         </div>
       </div>
     </>
