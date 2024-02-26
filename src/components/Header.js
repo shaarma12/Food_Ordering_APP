@@ -18,38 +18,38 @@ const Header = () => {
   const totalQuantity = cartItem.reduce((acc, item) => acc + item.count, 0);
   return (
     <>
-      <div className="flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
+      <div className="lg:w-full md:w-max sm:w-max w-max flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
         {/* Logo */}
         <div>
           <Link to="/">
-            <img className="w-32 ml-32" src={Logoimg} alt="Main Logo" />
+            <img className="md:w-32 w-56 md:ml-32" src={Logoimg} alt="Main Logo" />
           </Link>
         </div>
 
         {/* Nav Links */}
         <div className="mr-14">
           <ul className="flex">
-            <li className="px-10 text-3xl  font-serif  hover:text-red-600 hover:underline underline-offset-8">
+            <li className="md:px-10 px-7 md:text-3xl text-4xl font-serif hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/">
                 Home
               </Link>
             </li>
-            <li className="px-10 text-3xl font-serif  hover:text-red-600 hover:underline underline-offset-8">
+            <li className="md:px-10 px-7 md:text-3xl text-4xl font-serif hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/about">
                 About
               </Link>
             </li>
-            <li className="px-10 text-3xl font-serif  hover:text-red-600 hover:underline underline-offset-8">
+            <li className="md:px-10 px-7 md:text-3xl text-4xl font-serif hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/services">
                 Services
               </Link>
             </li>
-            <li className="px-10 text-3xl font-serif  hover:text-red-600 hover:underline underline-offset-8">
+            <li className="md:px-10 px-7 md:text-3xl text-4xl font-serif hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/contact">
                 Contact
               </Link>
             </li>
-            <li className="px-10 text-3xl font-serif  hover:text-red-600 hover:underline underline-offset-8">
+            <li className="md:px-10 px-7 md:text-3xl text-4xl font-serif hover:text-red-600 hover:underline underline-offset-8">
               <Link className="link" to="/grocery">
                 Grocery
               </Link>
