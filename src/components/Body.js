@@ -64,7 +64,6 @@ const Body = () => {
   }
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
-  console.log("Top Restraunt Chains :-", restrauntChains);
   const DiscountBanner = DiscountInfo(Rescard);
   if (rest?.length === 0) return <Shimmer />;
   return (
@@ -79,7 +78,7 @@ const Body = () => {
             setChanger(e.target.value);
           }}
         ></input> */}
-        <div className="flex my-14 ml-[75rem] items-center mr-[75rem]">
+        <div className="flex my-14 md:ml-[75rem] items-center md:mr-[75rem] ml-[55rem]">
           <input
             className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 p-2 w-[32rem]"
             data-testid="searchInput"
