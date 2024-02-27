@@ -80,7 +80,7 @@ const Body = () => {
         ></input> */}
         <div className="flex my-14 md:ml-[75rem] items-center md:mr-[75rem] ml-[55rem]">
           <input
-            className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 p-2 w-[32rem]"
+            className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 md:p-2 p-4 w-[32rem]"
             data-testid="searchInput"
             type="text"
             placeholder="Search for restaurant, cuisine...."
