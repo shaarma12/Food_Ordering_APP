@@ -29,10 +29,10 @@ const Restaurant = () => {
     totalRatingsString,
     costForTwoMessage,
     id,
-  } = cuis?.data?.cards[2]?.card?.card?.info;
+  } = cuis?.data?.cards[0]?.card?.card?.info;
 
-  const { offers } = cuis?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle;
-  const { cards } = cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
+  const { offers } = cuis?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
+  const { cards } = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   const filterAccordion = cards.filter((i) => {
     return (
       i?.card?.card?.["@type"] ===

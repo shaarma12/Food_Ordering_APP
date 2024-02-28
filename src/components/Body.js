@@ -78,9 +78,9 @@ const Body = () => {
             setChanger(e.target.value);
           }}
         ></input> */}
-        <div className="flex my-14 md:ml-[75rem] items-center md:mr-[75rem] ml-[55rem]">
+        <div className="flex my-14 md:ml-[75rem] items-center md:mr-[75rem] ml-[65rem] md:mt-12 mt-12">
           <input
-            className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 md:p-2 p-4 w-[32rem]"
+            className="border-black border-2 rounded-tl-full rounded-bl-full mr-6 md:p-2 p-10 md:w-[32rem] w-[40rem] md:placeholder:text-base placeholder:text-3xl"
             data-testid="searchInput"
             type="text"
             placeholder="Search for restaurant, cuisine...."
@@ -90,7 +90,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="p-2 -ml-6 border-y-2 border-r-2 border-black rounded-tr-full rounded-br-full font-medium bg-black text-white"
+            className="md:p-2 p-10 -ml-6 border-y-2 border-r-2 border-black rounded-tr-full rounded-br-full font-medium bg-black text-white"
             onClick={() => {
               const searching = rest.filter((i) => {
                 return i.info.name.toLowerCase().includes(text.toLowerCase());
@@ -98,12 +98,12 @@ const Body = () => {
               setFilterlist(searching);
             }}
           >
-            <img src={search} alt="search" className="w-[1.8rem] pr-1" />
+            <img src={search} alt="search" className="md:w-[1.8rem] w-9 pr-1" />
           </button>
         </div>
         {!CorouselChecker && (
           <div className="flex flex-col w-[75rem]">
-            <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
+            <h2 className="mt-6 md:text-2xl text-5xl font-bold text-gray-900 mb-6 md:ml-3 ml-[30rem]">
               Best offers for you
             </h2>
             <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
@@ -133,7 +133,7 @@ const Body = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col w-[75rem] mb-16">
+          <div className="flex flex-col w-[75rem] md:mb-16 mb-32">
             <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
               {gridImage?.cards[0]?.card?.card?.header?.title}
             </h2>
