@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import useRes from "../utils/useRes";
 import MenuAccordion from "./MenuAccordion";
 import { useState } from "react";
+import { Coupon_IMG } from "../utils/constant";
 
 const Restaurant = () => {
   const { resId } = useParams();
@@ -39,6 +40,7 @@ const Restaurant = () => {
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   });
+  const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -79,7 +81,10 @@ const Restaurant = () => {
               />
             })}
           </div>
-          <div className="border-b-[1.5px] border-gray-300">
+          {isPureVeg ? <div className="flex -ml-2 border-b-[1.5px] border-gray-300 pb-4">
+            <img src={Coupon_IMG + vegOnlyDetails?.imageId} className="mr-1" />
+            <p className="text-xs mt-[0.35rem] font-semibold">PURE VEG</p>
+          </div> : <div className="border-b-[1.5px] border-gray-300">
             <div className="flex mt-2 mb-6">
               <p className="mr-2 text-sm font-bold tracking-wider cursor-pointer">
                 Veg Only
@@ -107,7 +112,7 @@ const Restaurant = () => {
                 </div>
               )}
             </div>
-          </div>
+          </div>}
         </div>
         {filterAccordion.map((i) => {
           return (
