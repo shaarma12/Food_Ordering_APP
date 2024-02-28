@@ -34,6 +34,9 @@ const Restaurant = () => {
 
   const { offers } = cuis?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
   const { cards } = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
+  const filterOffer = offers.filter((i) => {
+    return i?.info?.offerTag != "DEAL OF DAY";
+  })
   const filterAccordion = cards.filter((i) => {
     return (
       i?.card?.card?.["@type"] ===
@@ -41,6 +44,7 @@ const Restaurant = () => {
     );
   });
   const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
+  console.log("offers", offers);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -74,7 +78,7 @@ const Restaurant = () => {
             <p className="font-bold text-lg">{costForTwoMessage}</p>
           </div>
           <div className="flex mt-5 relative right-2 pb-10 overflow-x-scroll no-scrollbar">
-            {offers.map((i) => {
+            {filterOffer.map((i) => {
               return <Coupon
                 key={i.offerIds}
                 values={i}
