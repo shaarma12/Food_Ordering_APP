@@ -8,6 +8,7 @@ import useRes from "../utils/useRes";
 import MenuAccordion from "./MenuAccordion";
 import { useState } from "react";
 import { Coupon_IMG } from "../utils/constant";
+import TopPicksCarousel from "./TopPicksCarousel";
 
 const Restaurant = () => {
   const { resId } = useParams();
@@ -47,7 +48,7 @@ const Restaurant = () => {
     return (i?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.MenuCarousel");
   })
   const { carousel, title } = topPicksCorousel[0]?.card?.card;
-  console.log("carousel", carousel)
+  console.log("carousel", carousel);
   const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
   return (
     <>
@@ -122,6 +123,7 @@ const Restaurant = () => {
             </div>
           </div>}
         </div>
+        <TopPicksCarousel info={carousel[0]?.dish?.info} />
         {filterAccordion.map((i) => {
           return (
             <MenuAccordion
