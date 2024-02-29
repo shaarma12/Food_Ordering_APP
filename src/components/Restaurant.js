@@ -43,6 +43,11 @@ const Restaurant = () => {
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   });
+  const topPicksCorousel = cards.filter((i) => {
+    return (i?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.MenuCarousel");
+  })
+  const { carousel, title } = topPicksCorousel[0]?.card?.card;
+  console.log("carousel", carousel)
   const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
   return (
     <>
