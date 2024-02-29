@@ -44,7 +44,6 @@ const Restaurant = () => {
     );
   });
   const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
-  console.log("offers", offers);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
