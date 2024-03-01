@@ -123,7 +123,17 @@ const Restaurant = () => {
             </div>
           </div>}
         </div>
-        <TopPicksCarousel info={carousel[0]?.dish?.info} />
+        <div className="pb-10">
+          <p className="my-5 text-2xl font-bold -ml-2">{title}</p>
+          <div className="flex w-[46rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1">
+            {
+              carousel.map((i) => {
+                return <TopPicksCarousel key={i?.bannerId} info={i} />
+              })
+            }
+          </div>
+        </div>
+        <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>
         {filterAccordion.map((i) => {
           return (
             <MenuAccordion
