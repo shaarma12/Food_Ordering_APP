@@ -123,7 +123,7 @@ const Restaurant = () => {
             </div>
           </div>}
         </div>
-        <div className="pb-10">
+        <div className="pb-5">
           <p className="my-5 text-2xl font-bold ml-2">{title}</p>
           <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
             {
