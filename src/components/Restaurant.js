@@ -123,7 +123,7 @@ const Restaurant = () => {
             </div>
           </div>}
         </div>
-        <div className="pb-5">
+        {carousel.length !== 0 && <div className="pb-5">
           <p className="my-5 text-2xl font-bold ml-2">{title}</p>
           <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
             {
@@ -132,7 +132,7 @@ const Restaurant = () => {
               })
             }
           </div>
-        </div>
+        </div>}
         <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>
         {filterAccordion.map((i) => {
           return (
