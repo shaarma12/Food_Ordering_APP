@@ -48,6 +48,10 @@ const Restaurant = () => {
     return (i?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.MenuCarousel");
   })
   const { isPureVeg, vegOnlyDetails } = cards[0]?.card?.card;
+  const filterCarouselVeg = topPicksCorousel[0]?.card?.card?.carousel.filter((i) => {
+    return i?.dish?.info?.itemAttribute?.vegClassifier === "VEG";
+  });
+  console.log("filterCarouselVeg", filterCarouselVeg);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
@@ -121,17 +125,25 @@ const Restaurant = () => {
             </div>
           </div>}
         </div>
-        {topPicksCorousel[0]?.card?.card?.carousel && <div className="pb-5">
+        {topPicksCorousel[0]?.card?.card?.carousel && filterCarouselVeg.length != 0 && veg ? <div className="pb-5">
           <p className="my-5 text-2xl font-bold ml-2">{topPicksCorousel[0]?.card?.card?.title}</p>
           <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
             {
-              topPicksCorousel[0]?.card?.card?.carousel.map((i) => {
+              filterCarouselVeg.map((i) => {
                 return <TopPicksCarousel key={i?.bannerId} info={i} />
               })
             }
-          </div>
-        </div>}
-        {topPicksCorousel[0]?.card?.card?.carousel && <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>}
+          </div></div> : topPicksCorousel[0]?.card?.card?.carousel && <div className="pb-5">
+            <p className="my-5 text-2xl font-bold ml-2">{topPicksCorousel[0]?.card?.card?.title}</p>
+            <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
+              {
+                topPicksCorousel[0]?.card?.card?.carousel.map((i) => {
+                  return <TopPicksCarousel key={i?.bannerId} info={i} />
+                })
+              }
+            </div>
+          </div>}
+        {topPicksCorousel[0]?.card?.card?.carousel && filterCarouselVeg.length != 0 && <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>}
         {filterAccordion.map((i) => {
           return (
             <MenuAccordion
