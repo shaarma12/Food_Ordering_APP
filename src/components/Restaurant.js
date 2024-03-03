@@ -130,7 +130,7 @@ const Restaurant = () => {
           <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
             {
               filterCarouselVeg.map((i) => {
-                return <TopPicksCarousel key={i?.bannerId} info={i} />
+                return <TopPicksCarousel key={i?.bannerId} restro={i} cuis={cuis} />
               })
             }
           </div></div> : topPicksCorousel[0]?.card?.card?.carousel && <div className="pb-5">
@@ -138,12 +138,12 @@ const Restaurant = () => {
             <div className="flex w-[47.5rem] overflow-x-scroll no-scrollbar scroll-smooth gap-3 -ml-1 pl-4">
               {
                 topPicksCorousel[0]?.card?.card?.carousel.map((i) => {
-                  return <TopPicksCarousel key={i?.bannerId} info={i} />
+                  return <TopPicksCarousel key={i?.bannerId} restro={i} cuis={cuis} />
                 })
               }
             </div>
           </div>}
-        {topPicksCorousel[0]?.card?.card?.carousel && filterCarouselVeg.length != 0 && <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>}
+        {topPicksCorousel[0]?.card?.card?.carousel && <div className="border-b-[10px] border-gray-200 w-[48rem] -ml-1"></div>}
         {filterAccordion.map((i) => {
           return (
             <MenuAccordion
