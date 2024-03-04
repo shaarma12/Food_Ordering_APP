@@ -5,10 +5,10 @@ import ChangeRestruantBanner from './ChangeRestruantBanner'
 import PriceBanner from './PriceBanner'
 import { useDispatch, useSelector } from 'react-redux'
 
-const TopPicksCarousel = ({ restro, cuis }) => {
+const TopPicksCarousel = ({ info, cuis }) => {
     const dispatch = useDispatch();
-    const { creativeId } = restro
-    const { name, description, isVeg, defaultPrice, price } = restro?.dish?.info
+    const { creativeId } = info
+    const { name, description, isVeg, defaultPrice, price } = info?.dish?.info
     const restruantName = useSelector((store) => store.cart.restruantName);
     const restruantBannerClose = useSelector(
         (store) => store.cart.restruantBannerClose
