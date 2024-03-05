@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CAROUSEL_IMG } from '../utils/constant'
-import { addItems, removeItems, resClose } from '../utils/cartSlice'
-import ChangeRestruantBanner from './ChangeRestruantBanner'
-import PriceBanner from './PriceBanner'
-import { useDispatch, useSelector } from 'react-redux'
 
-const TopPicksCarousel = ({ info, cuis }) => {
+const TopPicksCarousel = ({ info }) => {
     const { creativeId } = info
-    const { name, description, isVeg, defaultPrice, price } = info?.dish?.info
-    console.log("Info:-", info);
+    const { defaultPrice, price } = info?.dish?.info
     return (
         <div>
             <img src={CAROUSEL_IMG + creativeId} className='h-[28rem] w-[26rem] mx-[30rem] -ml-0' />

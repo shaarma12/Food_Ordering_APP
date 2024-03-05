@@ -8,7 +8,6 @@ import PriceBanner from "./PriceBanner";
 import ChangeRestruantBanner from "./ChangeRestruantBanner";
 
 const CuisineCard = ({ restro, cuis }) => {
-  console.log("restro:-", restro);
   const [banner, setBanner] = useState();
   const [changeRestruant, setchangeRestruant] = useState();
   const dispatch = useDispatch();
