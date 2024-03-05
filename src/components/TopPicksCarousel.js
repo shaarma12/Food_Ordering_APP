@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CAROUSEL_IMG } from '../utils/constant'
 import { addItems, removeItems, resClose } from '../utils/cartSlice'
 import ChangeRestruantBanner from './ChangeRestruantBanner'
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const TopPicksCarousel = ({ info, cuis }) => {
     const dispatch = useDispatch();
+    const [changeRestruant, setchangeRestruant] = useState();
     const { creativeId } = info
     const { name, description, isVeg, defaultPrice, price } = info?.dish?.info
     const restruantName = useSelector((store) => store.cart.restruantName);
@@ -18,6 +19,7 @@ const TopPicksCarousel = ({ info, cuis }) => {
             store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
                 ?.count || 0
     );
+    console.log("Info:-", info);
     return (
         <div>
             <img src={CAROUSEL_IMG + creativeId} className='h-[28rem] w-[26rem] mx-[30rem] -ml-0' />
