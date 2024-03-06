@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const OnHoverBill = () => {
   const data = useSelector((store) => store.cart.items);
   const resData = useSelector((store) => store.cart.restruantName);
+  console.log("restruantName", resData);
   let totalBill = 0;
   data.map((i) => {
     let value = i?.card?.info?.price
@@ -18,14 +19,14 @@ const OnHoverBill = () => {
         <div>
           <div className="flex pb-5 border-b border-black">
             <Link to={"/restaurant/" + resData[0]?.id}>
-            <img
-              className="w-20 h-20"
-              alt="OnHoverBill restaurant Image"
-              src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-                resData[0]?.cloudinaryImageId
-              }
-            />
+              <img
+                className="w-20 h-20"
+                alt="OnHoverBill restaurant Image"
+                src={
+                  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+                  resData[0]?.cloudinaryImageId
+                }
+              />
             </Link>
             <div className="ml-6">
               <div>

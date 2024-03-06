@@ -9,6 +9,7 @@ import {
 } from "../utils/cartSlice";
 
 const ChangeRestruantBanner = ({ cuis, restro }) => {
+  console.log("Cuissss", cuis);
   const dispatch = useDispatch();
   return (
     <div className="p-7  text-sm bg-[#fff] drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] text-black z-20 w-[33rem] fixed h-52 top-[28rem] ml-[5.5rem]">
