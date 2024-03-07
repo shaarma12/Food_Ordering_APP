@@ -20,7 +20,7 @@ const CuisineCard = ({ restro, cuis }) => {
       store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
         ?.count || 0
   );
-
+  console.log("Cuis:-", cuis)
   return (
     <div
       className="flex justify-between w-[46rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-2"
@@ -79,7 +79,7 @@ const CuisineCard = ({ restro, cuis }) => {
                   } else {
                     setchangeRestruant(
                       <ChangeRestruantBanner
-                        cuis={cuis?.data?.cards[2]?.card?.card?.info}
+                        cuis={cuis?.data?.cards[0]?.card?.card?.info}
                         restro={restro}
                       />
                     );
@@ -98,14 +98,14 @@ const CuisineCard = ({ restro, cuis }) => {
             className="px-9 py-2 bg-white text-green-600 z-10 relative bottom-7 left-5 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
               if (
-                cuis?.data?.cards[2]?.card?.card?.info?.name ==
+                cuis?.data?.cards[0]?.card?.card?.info?.name ==
                 restruantName[0]?.name
               ) {
                 dispatch(addItems(restro));
               } else {
                 setchangeRestruant(
                   <ChangeRestruantBanner
-                    cuis={cuis?.data?.cards[2]?.card?.card?.info}
+                    cuis={cuis?.data?.cards[0]?.card?.card?.info}
                     restro={restro}
                   />
                 );
