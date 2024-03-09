@@ -44,7 +44,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                     <p>{defaultPrice ? defaultPrice / 100 : price / 100}</p>
                 </div>
                 {count > 0 ? (
-                    <button className="px-9 py-2 bg-white text-green-600 z-10 relative right-24 bottom-2 rounded-md text-sm font-medium hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]">
+                    <button className="w-24 h-9 bg-white text-green-600 relative right-24 bottom-2 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]">
                         <div className="flex justify-between ml-10">
                             <p
                                 className="-ml-7 mb-2 text-2xl"
@@ -82,7 +82,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                 ) : (
                     /* Add button without count */
                     <button
-                        className="px-9 py-2 bg-white text-green-600 z-10 relative right-24 bottom-2 rounded-md text-sm font-medium hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]"
+                        className="w-24 h-9 bg-white text-green-600 relative right-24 bottom-2 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]"
                         onClick={() => {
                             if (
                                 cuis?.data?.cards[0]?.card?.card?.info?.name ===

@@ -18,7 +18,7 @@ const PriceBanner = ({ actual }) => {
   return (
     <Link
       to="/cart"
-      className="flex items-center justify-between px-4 text-sm bg-[#60B240] text-white z-20 w-[48rem] fixed h-12 top-[40.93rem]  -ml-2"
+      className="flex items-center justify-between px-4 text-sm bg-[#60B240] text-white z-20 w-[48rem] fixed h-12 top-[40.93rem] -ml-2"
     >
       <p className="font-bold">
         {quantity}
