@@ -9,7 +9,8 @@ const TopPicksCarousel = ({ inform, cuis }) => {
     const { creativeId } = inform
     const { price, imageId, name, description, id, defaultPrice } = inform?.dish?.info;
     console.log("shiv", inform);
-    let restro = {
+    console.log("omkar", cuis);
+    const restro = {
         card: {
             info: {
                 id: id,
@@ -17,10 +18,9 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                 defaultPrice: defaultPrice,
                 imageId: imageId,
                 name: name,
-                description: description
+                description: description,
             }
         }
-
     }
     console.log("restrocvbn", restro);
     const [banner, setBanner] = useState();
@@ -32,7 +32,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
     );
     const count = useSelector(
         (store) =>
-            store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
+            store.cart.items.find((item) => item?.card?.info?.id === restro?.card?.info?.id)
                 ?.count || 0
     );
     return (
@@ -59,7 +59,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                                 className="mr-2 mb-2 text-2xl"
                                 onClick={() => {
                                     if (
-                                        cuis?.data?.cards[2]?.card?.card?.info?.name ==
+                                        cuis?.data?.cards[0]?.card?.card?.info?.name ===
                                         restruantName[0]?.name
                                     ) {
                                         dispatch(addItems(restro));
@@ -85,7 +85,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                         className="px-9 py-2 bg-white text-green-600 z-10 relative right-24 bottom-2 rounded-md text-sm font-medium hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]"
                         onClick={() => {
                             if (
-                                cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                                cuis?.data?.cards[0]?.card?.card?.info?.name ===
                                 restruantName[0]?.name
                             ) {
                                 dispatch(addItems(restro));

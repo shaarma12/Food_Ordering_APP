@@ -17,7 +17,7 @@ const CuisineCard = ({ restro, cuis }) => {
   );
   const count = useSelector(
     (store) =>
-      store.cart.items.find((item) => item.card.info.id === restro.card.info.id)
+      store.cart.items.find((item) => item?.card?.info?.id === restro?.card?.info?.id)
         ?.count || 0
   );
   console.log("Cuis:-", cuis)
@@ -72,7 +72,7 @@ const CuisineCard = ({ restro, cuis }) => {
                 className="mr-2 mb-2 text-2xl"
                 onClick={() => {
                   if (
-                    cuis?.data?.cards[2]?.card?.card?.info?.name ==
+                    cuis?.data?.cards[0]?.card?.card?.info?.name ==
                     restruantName[0]?.name
                   ) {
                     dispatch(addItems(restro));
