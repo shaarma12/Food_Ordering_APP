@@ -7,7 +7,6 @@ const Rescard = ({ restaurant }) => {
   const dispatch = useDispatch();
   const { cloudinaryImageId, name, avgRating, cuisines, areaName, sla } =
     restaurant?.info;
-  console.log("restaurantInfo", restaurant?.info);
   return (
     <>
       <div

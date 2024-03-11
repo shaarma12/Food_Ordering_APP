@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const OnHoverBill = () => {
   const data = useSelector((store) => store.cart.items);
   const resData = useSelector((store) => store.cart.restruantName);
-  console.log("restruantName", resData);
   let totalBill = 0;
   data.map((i) => {
     let value = i?.card?.info?.price

@@ -8,8 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 const TopPicksCarousel = ({ inform, cuis }) => {
     const { creativeId } = inform
     const { price, imageId, name, description, id, defaultPrice } = inform?.dish?.info;
-    console.log("shiv", inform);
-    console.log("omkar", cuis);
     const restro = {
         card: {
             info: {
@@ -22,7 +20,6 @@ const TopPicksCarousel = ({ inform, cuis }) => {
             }
         }
     }
-    console.log("restrocvbn", restro);
     const [banner, setBanner] = useState();
     const [changeRestruant, setchangeRestruant] = useState();
     const dispatch = useDispatch();

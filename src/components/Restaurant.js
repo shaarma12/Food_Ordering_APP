@@ -51,7 +51,6 @@ const Restaurant = () => {
   const filterCarouselVeg = topPicksCorousel[0]?.card?.card?.carousel.filter((i) => {
     return i?.dish?.info?.itemAttribute?.vegClassifier === "VEG";
   });
-  console.log("filterCarouselVeg", filterCarouselVeg);
   return (
     <>
       <div className="flex flex-col items-center mt-20 mx-auto">
