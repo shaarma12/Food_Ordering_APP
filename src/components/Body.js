@@ -133,7 +133,7 @@ const Body = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col w-[75rem] md:mb-16 mb-32">
+          <div className="flex flex-col  w-[75rem] md:mb-16 mb-32">
             <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
               {gridImage?.cards[0]?.card?.card?.header?.title}
             </h2>
