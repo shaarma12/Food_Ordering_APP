@@ -10,7 +10,7 @@ import search from "../../images/search.svg";
 import { useDispatch, useSelector } from "react-redux";
 import PriceBanner from "./PriceBanner";
 import { displayAdress } from "../utils/addressSlice";
-import ResChain, { DiscountChainInfo } from "./ResChain";
+import ResChain from "./ResChain";
 
 const Body = () => {
   // Using Context
