@@ -33,7 +33,7 @@ const Cartpopup = (props) => {
     const options = {
       key: "rzp_test_PRI9QUWg3RMcQf",
       currency: "INR",
-      amount: props.bill * 100,
+      amount: props.bill * 100, // multiply by 100 becuase razorpay will take amount as paisa
       name: "KhaoJi",
       description: "Thanks for purchasing",
       image: Logoimg,
