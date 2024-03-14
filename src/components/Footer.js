@@ -139,7 +139,7 @@ const Footer = () => {
             </Link>
             <Link to="https://www.appstore.com/">
               <img
-                className="w-40 hover:scale-y-110 transition-all duration-200"
+                className="w-40  hover:scale-y-110 transition-all duration-200"
                 src={app_store}
                 alt="App Store"
               />
