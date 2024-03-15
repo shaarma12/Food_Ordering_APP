@@ -16,7 +16,6 @@ const Restaurant = () => {
 
   // const [show, setShow] = useState();
   // Creating Custom hook for Fetching Data through API to make this component Single Responsible
-
   const cuis = useRes(resId);
   if (cuis === null) {
     return <Shimmer />;
