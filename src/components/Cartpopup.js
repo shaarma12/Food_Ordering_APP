@@ -24,7 +24,7 @@ const Cartpopup = (props) => {
     });
   };
 
-  const displayRazorPay = async () => {
+  const displayRazorPay = async (amount) => {
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
     if (!res) {
       alert("You are offline.... Failed to load razorpay SDK");
@@ -33,7 +33,7 @@ const Cartpopup = (props) => {
     const options = {
       key: "rzp_test_PRI9QUWg3RMcQf",
       currency: "INR",
-      amount: props.bill * 100, // multiply by 100 becuase razorpay will take amount as paisa
+      amount: amount * 100, // multiply by 100 becuase razorpay will take amount as paisa
       name: "KhaoJi",
       description: "Thanks for purchasing",
       image: Logoimg,
