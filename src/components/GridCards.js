@@ -8,7 +8,7 @@ const GridCards = ({ gridImage }) => {
           imageId
         }
         alt="specific dishes"
-        className="mx-[5.5rem] h-40 cursor-pointer"
+        className="md:mx-[5.5rem] mx-[10rem] md:h-40 h-72 cursor-pointer"
       />
     </div>
   );

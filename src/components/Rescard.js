@@ -17,21 +17,21 @@ const Rescard = ({ restaurant }) => {
         }}
       >
         <img
-          className="w-72 h-52 rounded-3xl drop-shadow-[5px_5px_10px_rgba(8,7,7,1)]"
+          className="md:w-72 w-[35rem] h-[28rem] md:h-52 rounded-3xl drop-shadow-[5px_5px_10px_rgba(8,7,7,1)]"
           src={RES_IMG + cloudinaryImageId}
           alt="resImg"
         />
-        <h2 className="mt-2 text-xl font-semibold ml-2">{name.length > 27 ? name.substring(0, 26) + "..." : name}</h2>
+        <h2 className="mt-2 md:text-xl text-4xl font-semibold ml-2 md:w-full w-[30rem]">{name.length > 27 ? name.substring(0, 26) + "..." : name}</h2>
         <div className="flex items-center font-semibold ml-2">
-          <img className="w-5 h-4 pr-1" src={star} alt="Star" />
-          <h3>{avgRating}</h3>
+          <img className="md:w-5 md:h-4 w-6 h-5 pr-1" src={star} alt="Star" />
+          <h3 className="md:text-base text-2xl">{avgRating}</h3>
           <p className="text-xl font-extrabold mx-1 -mt-3">.</p>
-          <h3>{sla?.slaString}</h3>
+          <h3 className="md:text-base text-2xl">{sla?.slaString}</h3>
         </div>
-        <p className="font-normal ml-2">
+        <p className="font-normal ml-2 md:text-base text-2xl">
           {cuisines.slice(Math.max(cuisines.length - 3)).join(", ")}
         </p>
-        <p className="font-normal ml-2">{areaName}</p>
+        <p className="font-normal ml-2 md:text-base text-2xl">{areaName}</p>
       </div>
     </>
   );
@@ -47,7 +47,7 @@ export const DiscountInfo = (Rescard) => {
 
     return (
       <>
-        <h1 className="absolute z-10 font-extrabold text-xl text-white mt-[10.8rem] ml-5 opacity-90">
+        <h1 className="absolute w-[20rem] z-10 font-extrabold md:text-xl text-3xl text-white md:mt-[10.8rem] mt-[24rem] md:ml-5 ml-28 opacity-90">
           {aggregatedDiscountInfoV3?.header}
           {""}
           {aggregatedDiscountInfoV3?.subHeader}

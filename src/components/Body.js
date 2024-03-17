@@ -68,7 +68,7 @@ const Body = () => {
   if (rest?.length === 0) return <Shimmer />;
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ml-0">
         {banner.length > 0 && <PriceBanner />}
         {/* <input
           className="m-5 mr-48 p-1"
@@ -133,12 +133,12 @@ const Body = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col  w-[75rem] md:mb-16 mb-32">
-            <h2 className="mt-6 text-2xl font-bold text-gray-900 mb-6 ml-3">
+          <div className="flex flex-col w-[75rem] mb-16">
+            <h2 className="mt-6 md:text-2xl text-5xl font-bold text-gray-900 md:mb-6 mb-10 md:ml-3 ml-[30rem]">
               {gridImage?.cards[0]?.card?.card?.header?.title}
             </h2>
-            <div className="flex overflow-x-scroll scroll-smooth no-scrollbar gap-2 w-[75rem]">
-              <div className="flex -ml-20">
+            <div className="flex overflow-x-scroll scroll-smooth no-scrollbar md:gap-2 md:w-[75rem] w-[90rem] md:ml-0 ml-64">
+              <div className="flex md:-ml-20 ml-20">
                 {gridImage?.cards[0]?.card?.card?.imageGridCards?.info.map(
                   (i) => {
                     return <GridCards key={i?.id} gridImage={i} />;
@@ -148,45 +148,47 @@ const Body = () => {
             </div>
           </div>
         )}
-        <div className="flex flex-col w-[75rem] border-t-2 mb-7 border-b-2 pb-12">
-          <h2 className="mt-11 text-2xl font-bold text-gray-900 mb-5">
+        <div className="flex flex-col w-[75rem] md:border-t-2 mb-7 md:border-b-2 pb-12">
+          <h2 className="mt-11 md:text-2xl text-5xl font-bold text-gray-900 md:mb-5 mb-10 md:ml-0 ml-[30rem]">
             Top restaurant chains in Delhi
           </h2>
-          <div className="flex rounded-2xl w-[75rem] overflow-x-scroll no-scrollbar">
+          <div className="flex rounded-2xl w-[75rem] overflow-x-scroll no-scrollbar md:ml-0 ml-[31rem]">
             {restrauntChains.map((i) => {
               return <Link to={`/restaurant/` + i?.info?.id} key={i?.info?.id}><ResChain restaurant={i} />
               </Link>
             })}
           </div>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 -ml-2">
-            Restaurants with online food delivery in Delhi
-          </h2>
-          <button
-            onClick={() => {
-              const change = rest.filter((i) => {
-                return i.info.avgRating > 4;
-              });
-              setFilterlist(change);
-            }}
-            className="mt-6 py-2 px-4 rounded-3xl font-medium border-[2px] border-[#E2E2E7] hover:scale-y-110 transition-all duration-300 mr-[68rem] -ml-2 drop-shadow-xl"
-          >
-            Top Rated
-          </button>
-        </div>
-        <div className="flex flex-wrap justify-center gap-6 mt-14">
-          {filterlist?.map((i) => {
-            return (
-              <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
-                {i?.info?.aggregatedDiscountInfoV2 === "{}" ? (
-                  <Rescard restaurant={i} />
-                ) : (
-                  <DiscountBanner restaurant={i} />
-                )}
-              </Link>
-            );
-          })}
+        <div className="md:ml-0 ml-[55rem]">
+          <div className="md:ml-[10.5rem] ml-20">
+            <h2 className="md:text-2xl text-5xl font-bold text-gray-900 -ml-2">
+              Restaurants with online food delivery in Delhi
+            </h2>
+            <button
+              onClick={() => {
+                const change = rest.filter((i) => {
+                  return i.info.avgRating > 4;
+                });
+                setFilterlist(change);
+              }}
+              className="md:w-28 w-28 mt-6 py-2 px-4 rounded-3xl font-medium border-[2px] border-[#E2E2E7] hover:scale-y-110 transition-all duration-300 mr-[68rem] -ml-2 drop-shadow-xl"
+            >
+              Top Rated
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center md:gap-6 gap-20 mt-14 md:ml-0 ml-16 md:-mr-0 -mr-6">
+            {filterlist?.map((i) => {
+              return (
+                <Link key={i.info.id} to={"/restaurant/" + i.info.id}>
+                  {i?.info?.aggregatedDiscountInfoV2 === "{}" ? (
+                    <Rescard restaurant={i} />
+                  ) : (
+                    <DiscountBanner restaurant={i} />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
