@@ -18,7 +18,7 @@ const Header = () => {
   const totalQuantity = cartItem.reduce((acc, item) => acc + item.count, 0);
   return (
     <>
-      <div className="md:w-full w-max flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
+      <div className="md:w-full w-[90rem] flex justify-between items-center shadow-xl sticky top-0 z-50 bg-white">
         {/* Logo */}
         <div>
           <Link to="/">

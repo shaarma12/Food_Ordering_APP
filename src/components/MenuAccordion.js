@@ -9,7 +9,7 @@ const MenuAccordion = ({ accordion, veg, cuis }) => {
   });
   return (
     <>
-      <div className="w-[48rem] mt-5  flex flex-col border-b-[15px] border-gray-200 mr-2">
+      <div className="md:w-[48rem] w-[65rem] mt-5 flex flex-col border-b-[15px] border-gray-200 mr-2">
         <div
           className="flex justify-between cursor-pointer mb-6 font-bold text-xl"
           onClick={() => {
@@ -17,31 +17,31 @@ const MenuAccordion = ({ accordion, veg, cuis }) => {
             setshow(!show);
           }}
         >
-          <span className="ml-2">
+          <span className="ml-2 md:text-xl text-4xl">
             {title} ({veg === true ? vegData.length : itemCards.length})
           </span>
           <span className="mr-9">{show ? "˄" : "˅"}</span>
         </div>
         {show && veg === true
           ? vegData.map((i) => {
-              return (
-                <CuisineCard
-                  key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
-                  restro={i}
-                  cuis={cuis}
-                />
-              );
-            })
+            return (
+              <CuisineCard
+                key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
+                restro={i}
+                cuis={cuis}
+              />
+            );
+          })
           : show &&
-            itemCards.map((i) => {
-              return (
-                <CuisineCard
-                  key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
-                  restro={i}
-                  cuis={cuis}
-                />
-              );
-            })}
+          itemCards.map((i) => {
+            return (
+              <CuisineCard
+                key={cuis?.data?.cards[0]?.card?.card?.info?.uniqueId}
+                restro={i}
+                cuis={cuis}
+              />
+            );
+          })}
       </div>
     </>
   );

@@ -16,19 +16,21 @@ const PriceBanner = ({ actual }) => {
     return (value += i?.count * c);
   });
   return (
-    <Link
-      to="/cart"
-      className="flex items-center justify-between px-4 text-sm bg-[#60B240] text-white z-20 w-[48rem] fixed h-12 top-[40.93rem] -ml-2"
-    >
-      <p className="font-bold">
-        {quantity}
-        {quantity > 1 ? " items" : " item"} | ₹{value.toFixed(2)}
-      </p>
-      <div className="flex">
-        <p className="font-bold mr-2">VIEW CART</p>
-        <img src={cartBag} alt="banner bag" className="w-5" />
-      </div>
-    </Link>
+    <div>
+      <Link
+        to="/cart"
+        className="flex items-center justify-between px-4 md:text-sm text-xl bg-[#60B240] text-white z-20 w-[48rem] fixed h-12 md:top-[40.93rem] bottom-0 md:left-[23.5rem] left-[17rem] right-0 -ml-2"
+      >
+        <p className="font-bold">
+          {quantity}
+          {quantity > 1 ? " items" : " item"} | ₹{value.toFixed(2)}
+        </p>
+        <div className="flex">
+          <p className="font-bold mr-2">VIEW CART</p>
+          <img src={cartBag} alt="banner bag" className="w-5" />
+        </div>
+      </Link>
+    </div>
   );
 };
 
