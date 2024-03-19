@@ -56,14 +56,14 @@ const Cartpopup = (props) => {
   };
 
   return (
-    <div className="w-[30rem] p-10 h-64 bg-white drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] rounded-lg fixed top-48">
-      <p className="text-center font-bold text-3xl mb-3">Are you sure?</p>
-      <p className="w-80 ml-14 text-gray-500 font-medium">Are you sure you want to place the order. Once order is placed it cannot be cancel.</p>
+    <div className="md:w-[30rem] w-[40rem] p-10 md:h-64 h-[22rem] bg-white drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] rounded-lg fixed md:top-48 top-[65rem]">
+      <p className="text-center font-bold md:text-3xl text-5xl mb-3">Are you sure?</p>
+      <p className="md:w-80 w-[28rem] ml-14 text-gray-500 md:text-base text-3xl font-medium">Are you sure you want to place the order. Once order is placed it cannot be cancel.</p>
       <div className="flex mt-8">
-        <button className="py-4 px-16 bg-[#60B240] text-white mr-8 text-lg font-semibold hover:drop-shadow-lg" onClick={() => {
+        <button className="md:py-4 py-6 md:px-16 px-20 bg-[#60B240] text-white mr-8 md:text-lg text-4xl font-semibold hover:drop-shadow-lg" onClick={() => {
           props.data(false);
         }}>Cancel</button>
-        <button className="py-4 px-16 bg-[#60B240] text-white text-lg font-semibold hover:drop-shadow-lg" onClick={() => {
+        <button className="py-4 px-16 bg-[#60B240] text-white md:text-lg text-4xl font-semibold hover:drop-shadow-lg" onClick={() => {
           displayRazorPay(props.bill);
           props.data(false);
         }}>Confirm</button>

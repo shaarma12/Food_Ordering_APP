@@ -5,7 +5,7 @@ import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
-import ChangeRestruantBanner from "./ChangeRestruantBanner";
+import ChangeRestruantBanner from "./changeRestruantBanner";
 
 const CuisineCard = ({ restro, cuis }) => {
   const [banner, setBanner] = useState();

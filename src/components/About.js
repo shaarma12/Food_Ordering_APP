@@ -29,7 +29,7 @@ class About extends React.Component {
     const { name, location, avatar_url } = this.state.userInfo;
     console.log("Rendering in Parent");
     return (
-      <div className="flex m-32">
+      <div className="flex md:m-32 m-52 md:-mb-0 -mb-[38rem]">
         <Card name={name} location={location} image={avatar_url} />
         <UserCard />
       </div>

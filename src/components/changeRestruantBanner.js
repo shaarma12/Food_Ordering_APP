@@ -11,8 +11,8 @@ import {
 const ChangeRestruantBanner = ({ cuis, restro }) => {
   const dispatch = useDispatch();
   return (
-    <div className="p-7  text-sm bg-[#fff] drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] text-black z-20 w-[33rem] fixed h-52 top-[28rem] ml-[5.5rem]">
-      <p className="text-xl font-bold text-[#282c3f]">Items already in cart</p>
+    <div className="p-7 md:text-sm text-2xl bg-[#fff] drop-shadow-[5px_5px_10px_rgba(8,7,7,1)] text-black z-20 md:w-[33rem] w-[45rem] fixed md:h-52 h-[18rem] bottom-5 ml-[5.5rem]">
+      <p className="md:text-xl text-4xl font-bold text-[#282c3f]">Items already in cart</p>
       <p className="text-[#35373f] mt-1 tracking-wider">
         Your cart contains items from other restaurant. Would you like to reset
         your cart for adding items from this restaurant?

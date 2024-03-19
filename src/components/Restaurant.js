@@ -52,7 +52,7 @@ const Restaurant = () => {
   });
   return (
     <>
-      <div className="flex flex-col items-center mt-20 md:mx-auto md:ml-0 ml-[45rem]">
+      <div className="flex flex-col items-center mt-20 md:mx-auto md:ml-0 ml-[45rem] z-10">
         <div className="flex justify-between md:w-[46rem] w-[65rem]">
           <div>
             <p className="md:text-xl text-6xl font-bold font-sans pb-2">{name}</p>
