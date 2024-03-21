@@ -19,9 +19,11 @@ const Body = () => {
   const dispatch = useDispatch();
   const [rest, setRest] = useState([]);
   const [text, setText] = useState("");
-  const [restrauntChains, setRestrauntChains] = useState();
+  const [restrauntChains, setRestrauntChains] = useState([]);
   const [gridImage, setGridImage] = useState(null);
   const [filterlist, setFilterlist] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
   useEffect(() => {
     geolocation();
   }, []);
@@ -31,41 +33,59 @@ const Body = () => {
       const { latitude, longitude } = position.coords;
       fetchData(latitude, longitude);
       fetchAddressData(latitude, longitude);
-    })
-  }
+    });
+  };
 
   const fetchData = async (latitude, longitude) => {
-    const url = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
-    const response = await url.json();
+    try {
+      const url = await fetch(
+        `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      );
+      const response = await url.json();
 
-    setRest(
-      !gridImage?.cards[0]?.card?.card?.header?.title
-        ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      setRest(
+        !gridImage?.cards[0]?.card?.card?.header?.title
+          ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+          : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+      );
+      setFilterlist(
+        !gridImage?.cards[0]?.card?.card?.header?.title
+          ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+          : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+      );
+      setRestrauntChains(
+        response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
-        : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-    );
-    setFilterlist(
-      !gridImage?.cards[0]?.card?.card?.header?.title
-        ? response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-        : response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-    );
-    setRestrauntChains(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setGridImage(response?.data);
-    // setCorousel(gridImage?.cards[0]?.card?.card?.header?.title="What's on your mind?");
+      );
+      setGridImage(response?.data);
+      setLoading(false); // Set loading to false when data is fetched
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const fetchAddressData = async (latitude, longitude) => {
-    const url = await fetch(`https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&api_key=65ccf42560a02876303330moh6024eb`);
-    const result = await url.json();
-    dispatch(displayAdress(result?.address));
-  }
+    try {
+      const url = await fetch(
+        `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&api_key=65ccf42560a02876303330moh6024eb`
+      );
+      const result = await url.json();
+      dispatch(displayAdress(result?.address));
+    } catch (error) {
+      console.error("Error fetching address data:", error);
+    }
+  };
+
+  if (loading) return <Shimmer />; // Render loading state while data is being fetched
+
   const CorouselChecker = gridImage?.cards[0]?.card?.card?.header?.title;
   // Calling High Order Component
   const DiscountBanner = DiscountInfo(Rescard);
-  if (rest?.length === 0) return <Shimmer />;
+
   return (
     <>
       <div className="flex flex-col items-center ml-0">
@@ -153,7 +173,7 @@ const Body = () => {
             Top restaurant chains in Delhi
           </h2>
           <div className="flex rounded-2xl w-[75rem] overflow-x-scroll no-scrollbar md:ml-0 ml-[31rem]">
-            {restrauntChains.map((i) => {
+            {restrauntChains && restrauntChains.map((i) => {
               return <Link to={`/restaurant/` + i?.info?.id} key={i?.info?.id}><ResChain restaurant={i} />
               </Link>
             })}
