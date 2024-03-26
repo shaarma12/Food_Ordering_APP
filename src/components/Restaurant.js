@@ -20,17 +20,17 @@ const Restaurant = () => {
   if (cuis === null) {
     return <Shimmer />;
   }
-
-  const filterOffer = cuis?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers.filter((i) => {
+  console.log("cuis hu mai", cuis);
+  const filterOffer = cuis?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers.filter((i) => {
     return i?.info?.offerTag != "DEAL OF DAY";
   })
-  const filterAccordion = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((i) => {
+  const filterAccordion = cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((i) => {
     return (
       i?.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   });
-  const topPicksCorousel = cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((i) => {
+  const topPicksCorousel = cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((i) => {
     return (i?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.MenuCarousel");
   })
   const filterCarouselVeg = topPicksCorousel[0]?.card?.card?.carousel.filter((i) => {
@@ -41,22 +41,22 @@ const Restaurant = () => {
       <div className="flex flex-col items-center mt-20 md:mx-auto md:ml-0 ml-[45rem] z-10">
         <div className="flex justify-between md:w-[46rem] w-[65rem]">
           <div>
-            <p className="md:text-xl text-6xl font-bold font-sans pb-2">{cuis?.data?.cards[0]?.card?.card?.info?.name}</p>
-            <p className="md:text-sm text-2xl text-slate-500">{cuis?.data?.cards[0]?.card?.card?.info?.cuisines.join(", ")}</p>
+            <p className="md:text-xl text-6xl font-bold font-sans pb-2">{cuis?.data?.cards[2]?.card?.card?.info?.name}</p>
+            <p className="md:text-sm text-2xl text-slate-500">{cuis?.data?.cards[2]?.card?.card?.info?.cuisines.join(", ")}</p>
             <p className="md:text-sm text-2xl text-slate-500">
-              {cuis?.data?.cards[0]?.card?.card?.info?.areaName}, {cuis?.data?.cards[0]?.card?.card?.info?.sla?.lastMileTravelString}
+              {cuis?.data?.cards[2]?.card?.card?.info?.areaName}, {cuis?.data?.cards[2]?.card?.card?.info?.sla?.lastMileTravelString}
             </p>
           </div>
           <div className="flex flex-col md:border-[1.5px] border-[2.5px] md:px-0 px-4 rounded-lg items-center">
             <div className="flex md:border-b-[1px] border-b-[3px] pb-1 pt-1">
               <img className="md:w-4 w-6 md:h-5 h-7 mr-1 mt-[0.25rem]" src={star} />
               <h3 className="text-yellow-500 md:text-lg text-3xl font-semibold">
-                {cuis?.data?.cards[0]?.card?.card?.info?.avgRating}
+                {cuis?.data?.cards[2]?.card?.card?.info?.avgRating}
               </h3>
             </div>
             <div className="plus">
               <p className="md:text-[0.7rem] text-lg font-semibold text-slate-500 px-1 py-3">
-                {cuis?.data?.cards[0]?.card?.card?.info?.totalRatingsString}
+                {cuis?.data?.cards[2]?.card?.card?.info?.totalRatingsString}
               </p>
             </div>
           </div>
@@ -64,9 +64,9 @@ const Restaurant = () => {
         <div className="flex mt-7 flex-col md:w-[47rem] w-[65rem] border-t-2 border-dotted border-gray-300">
           <div className="flex mt-4">
             <img className="md:w-5 w-7 md:h-6 h-8 pt-1 mr-2" src={clock} />
-            <p className="mr-4 font-bold md:text-lg text-2xl">{cuis?.data?.cards[0]?.card?.card?.info?.sla?.slaString}</p>
+            <p className="mr-4 font-bold md:text-lg text-2xl">{cuis?.data?.cards[2]?.card?.card?.info?.sla?.slaString}</p>
             <img className="md:w-5 w-7 md:h-6 h-8 mx-2 pt-1" src={rupee} />
-            <p className="font-bold md:text-lg text-2xl">{cuis?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</p>
+            <p className="font-bold md:text-lg text-2xl">{cuis?.data?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
           </div>
           <div className="flex mt-5 relative right-2 pb-10 overflow-x-scroll no-scrollbar">
             {filterOffer.map((i) => {
