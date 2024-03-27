@@ -6,7 +6,7 @@ import ChangeRestruantBanner from './ChangeRestruantBanner'
 import { useDispatch, useSelector } from 'react-redux'
 
 const TopPicksCarousel = ({ inform, cuis }) => {
-    console.log("mform", inform);
+
     const { creativeId } = inform
     const { price, imageId, name, description, id, defaultPrice, isVeg } = inform?.dish?.info;
     const restro = {

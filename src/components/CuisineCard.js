@@ -20,8 +20,7 @@ const CuisineCard = ({ restro, cuis }) => {
       store.cart.items.find((item) => item?.card?.info?.id === restro?.card?.info?.id)
         ?.count || 0
   );
-  console.log("hum tumhare", restruantName);
-  console.log("hnbv", cuis);
+
   return (
     <div
       className="flex justify-between md:w-[46rem] w-[65rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-2"

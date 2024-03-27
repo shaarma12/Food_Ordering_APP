@@ -20,7 +20,7 @@ const Restaurant = () => {
   if (cuis === null) {
     return <Shimmer />;
   }
-  console.log("cuis hu mai", cuis);
+
   const filterOffer = cuis?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers.filter((i) => {
     return i?.info?.offerTag != "DEAL OF DAY";
   })
