@@ -5,7 +5,7 @@ import { CUIS_IMG } from "../utils/constant";
 import veg from "../../images/veg.png";
 import nonveg from "../../images/nonveg.png";
 import PriceBanner from "./PriceBanner";
-import ChangeRestruantBanner from "./changeRestruantBanner";
+import ChangeRestruantBanner from "./ChangeRestruantBanner";
 
 const CuisineCard = ({ restro, cuis }) => {
   const [banner, setBanner] = useState();
@@ -20,6 +20,8 @@ const CuisineCard = ({ restro, cuis }) => {
       store.cart.items.find((item) => item?.card?.info?.id === restro?.card?.info?.id)
         ?.count || 0
   );
+  console.log("hum tumhare", restruantName);
+  console.log("hnbv", cuis);
   return (
     <div
       className="flex justify-between md:w-[46rem] w-[65rem] border-b-[1.599px] border-gray-300 pb-10 mb-5 ml-2 mt-2"
@@ -71,14 +73,14 @@ const CuisineCard = ({ restro, cuis }) => {
                 className="mr-2 mb-2 md:text-2xl text-3xl"
                 onClick={() => {
                   if (
-                    cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                    cuis?.data?.cards[2]?.card?.card?.info?.name ==
                     restruantName[0]?.name
                   ) {
                     dispatch(addItems(restro));
                   } else {
                     setchangeRestruant(
                       <ChangeRestruantBanner
-                        cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                        cuis={cuis?.data?.cards[2]?.card?.card?.info}
                         restro={restro}
                       />
                     );
@@ -97,14 +99,14 @@ const CuisineCard = ({ restro, cuis }) => {
             className="md:w-24 w-28 md:h-9 h-11 bg-white text-green-600 z-10 relative bottom-7 md:left-5 left-12 rounded-md text-sm font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100"
             onClick={() => {
               if (
-                cuis?.data?.cards[0]?.card?.card?.info?.name ==
+                cuis?.data?.cards[2]?.card?.card?.info?.name ==
                 restruantName[0]?.name
               ) {
                 dispatch(addItems(restro));
               } else {
                 setchangeRestruant(
                   <ChangeRestruantBanner
-                    cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                    cuis={cuis?.data?.cards[2]?.card?.card?.info}
                     restro={restro}
                   />
                 );

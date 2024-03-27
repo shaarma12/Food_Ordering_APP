@@ -76,8 +76,8 @@ const Restaurant = () => {
               />
             })}
           </div>
-          {cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.isPureVeg ? <div className="flex -ml-2 border-b-[1.5px] border-gray-300 pb-4">
-            <img src={Coupon_IMG + cuis?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.vegOnlyDetails?.imageId} className="mr-1" />
+          {cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.isPureVeg ? <div className="flex -ml-2 border-b-[1.5px] border-gray-300 pb-4">
+            <img src={Coupon_IMG + cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.vegOnlyDetails?.imageId} className="mr-1" />
             <p className="md:text-xs text-2xl mt-[0.35rem] font-semibold">PURE VEG</p>
           </div> : <div className="border-b-[1.5px] border-gray-300">
             <div className="flex mt-2 mb-6">

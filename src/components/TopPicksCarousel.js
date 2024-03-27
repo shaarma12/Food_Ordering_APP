@@ -6,8 +6,9 @@ import ChangeRestruantBanner from './ChangeRestruantBanner'
 import { useDispatch, useSelector } from 'react-redux'
 
 const TopPicksCarousel = ({ inform, cuis }) => {
+    console.log("mform", inform);
     const { creativeId } = inform
-    const { price, imageId, name, description, id, defaultPrice } = inform?.dish?.info;
+    const { price, imageId, name, description, id, defaultPrice, isVeg } = inform?.dish?.info;
     const restro = {
         card: {
             info: {
@@ -17,6 +18,7 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                 imageId: imageId,
                 name: name,
                 description: description,
+                isVeg: isVeg
             }
         }
     }
@@ -56,14 +58,14 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                                 className="mr-2 mb-2 md:text-2xl text-3xl"
                                 onClick={() => {
                                     if (
-                                        cuis?.data?.cards[0]?.card?.card?.info?.name ===
+                                        cuis?.data?.cards[2]?.card?.card?.info?.name ===
                                         restruantName[0]?.name
                                     ) {
                                         dispatch(addItems(restro));
                                     } else {
                                         setchangeRestruant(
                                             <ChangeRestruantBanner
-                                                cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                                                cuis={cuis?.data?.cards[2]?.card?.card?.info}
                                                 restro={restro}
                                             />
                                         );
@@ -82,14 +84,14 @@ const TopPicksCarousel = ({ inform, cuis }) => {
                         className="md:w-24 w-28 md:h-9 h-11 bg-white text-green-600 relative md:right-24 right-10 md:bottom-2 bottom-3 rounded-md md:text-sm text-lg font-medium drop-shadow-lg hover:scale-y-105 transition-all duration-100 hover:drop-shadow-[5px_5px_10px_rgba(255,255,255,1)]"
                         onClick={() => {
                             if (
-                                cuis?.data?.cards[0]?.card?.card?.info?.name ===
+                                cuis?.data?.cards[2]?.card?.card?.info?.name ===
                                 restruantName[0]?.name
                             ) {
                                 dispatch(addItems(restro));
                             } else {
                                 setchangeRestruant(
                                     <ChangeRestruantBanner
-                                        cuis={cuis?.data?.cards[0]?.card?.card?.info}
+                                        cuis={cuis?.data?.cards[2]?.card?.card?.info}
                                         restro={restro}
                                     />
                                 );
