@@ -22,17 +22,17 @@ const Rescard = ({ restaurant }) => {
           src={RES_IMG + cloudinaryImageId}
           alt="resImg"
         />
-        <h2 className="mt-2 md:text-xl text-4xl font-semibold ml-2 md:w-full w-[30rem]">{name.length > 27 ? name.substring(0, 26) + "..." : name}</h2>
+        <h2 className="mt-2 md:text-xl text-5xl font-semibold ml-2 md:w-full w-[35rem]">{name.length > 23 ? name.substring(0, 22) + "..." : name}</h2>
         <div className="flex items-center font-semibold ml-2">
           <img className="md:w-5 md:h-4 w-6 h-5 pr-1" src={star} alt="Star" />
           <h3 className="md:text-base text-2xl">{avgRating}</h3>
           <p className="text-xl font-extrabold mx-1 -mt-3">.</p>
           <h3 className="md:text-base text-2xl">{sla?.slaString}</h3>
         </div>
-        <p className="font-normal ml-2 md:text-base text-2xl">
+        <p className="font-normal ml-2 md:text-base text-3xl">
           {cuisines.slice(Math.max(cuisines.length - 3)).join(", ")}
         </p>
-        <p className="font-normal ml-2 md:text-base text-2xl">{areaName}</p>
+        <p className="font-normal ml-2 md:text-base text-3xl">{areaName}</p>
       </div>
     </>
   );
