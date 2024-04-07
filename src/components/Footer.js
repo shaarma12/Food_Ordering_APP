@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="md:mt-20 mt-[10rem] flex justify-center bg-gray-100 md:w-full w-[90rem]">
+      <div className="md:mt-20 mt-[10rem] hidden md:flex justify-center bg-gray-100 md:w-full w-[90rem]">
         <div className="flex flex-col m-16 mt-5">
           <Link>
             <img className="w-56" src={Logoimg} alt="FooterImg" />
