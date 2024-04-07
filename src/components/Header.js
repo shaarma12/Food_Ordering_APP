@@ -83,7 +83,7 @@ const Header = () => {
 
         <div className="mr-10 mt-1 flex relative left-6">
           <p className="mr-2 font-bold md:text-lg text-xl border-b-2 mb-1 border-black">{addressDetails?.county ? addressDetails?.county.replace("Tehsil", "") : addressDetails?.suburb.length > 9 ? (addressDetails?.suburb.slice(0, 9) + "...") : addressDetails?.suburb}</p>
-          <p className="mr-1 md:text-lg text-xl text-[#686b78]">{addressDetails?.state},</p>
+          <p className="mr-1 md:text-lg text-xl text-[#686b78]">{addressDetails?.state.length > 9 ? addressDetails?.state.slice(0, 8) + "..." : addressDetails?.state},</p>
           <p className="md:text-lg text-xl text-[#686b78]">{addressDetails?.country}</p>
         </div>
       </div>

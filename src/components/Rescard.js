@@ -48,7 +48,7 @@ export const DiscountInfo = (Rescard) => {
 
     return (
       <>
-        <h1 className="absolute w-[20rem] z-10 font-extrabold md:text-xl text-3xl text-white md:mt-[10.8rem] mt-[24rem] md:ml-5 ml-28 opacity-90">
+        <h1 className="absolute w-[30rem] z-10 font-extrabold md:text-xl text-3xl text-white md:mt-[10.8rem] mt-[24rem] md:ml-5 ml-28 opacity-90">
           {aggregatedDiscountInfoV3?.header}
           {""}
           {aggregatedDiscountInfoV3?.subHeader}
