@@ -38,11 +38,7 @@ const SmallScreenBody = () => {
     const fetchData = async (latitude, longitude) => {
         try {
             const url = await fetch(
-                `https://proxy.cors.sh/https://www.swiggy.com/mapi/homepage/getCards?lat=${latitude}&lng=${longitude}`, {
-                headers: {
-                    'x-cors-api-key': "temp_7c027484a2eb23f957b576e060a52264",
-                }
-            }
+                `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/mapi/homepage/getCards?lat=${latitude}&lng=${longitude}`
             );
             const response = await url.json();
             setRest(

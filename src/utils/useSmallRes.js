@@ -7,11 +7,7 @@ const useSmallRes = (resId) => {
         fetchData();
     }, [])
     const fetchData = async () => {
-        const data = await fetch(SMALL_MENU_API + resId, {
-            headers: {
-                'x-cors-api-key': "temp_7c027484a2eb23f957b576e060a52264",
-            }
-        });
+        const data = await fetch(SMALL_MENU_API + resId);
         const response = await data.json();
         setCuis(response);
     };
