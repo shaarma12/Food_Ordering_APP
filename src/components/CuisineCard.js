@@ -45,7 +45,7 @@ const CuisineCard = ({ restro, cuis }) => {
               : restro.card.info.defaultPrice / 100}
           </p>
         </div>
-        <div className="md:text-sm text-2xl text-gray-400 pr-7">
+        <div className="md:text-sm text-2xl text-gray-400 pr-7 w-[37rem]">
           <p>{restro.card.info.description}</p>
         </div>
       </div>
