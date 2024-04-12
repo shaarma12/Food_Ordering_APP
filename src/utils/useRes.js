@@ -7,7 +7,12 @@ const useRes = (resId) => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(MENU_API + resId);
+    const url = MENU_API + resId;
+    const data = await fetch(url, {
+      headers: {
+        'x-cors-api-key': 'temp_c5e441b9a245e17efe7c1fd50addd0de',
+      }
+    });
     const response = await data.json();
     setCuis(response);
   };
