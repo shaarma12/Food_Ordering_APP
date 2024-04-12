@@ -36,7 +36,11 @@ const LargeScreenBody = () => {
     const fetchData = async (latitude, longitude) => {
         try {
             const url = await fetch(
-                `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+                `https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`, {
+                headers: {
+                    'x-cors-api-key': 'temp_c5e441b9a245e17efe7c1fd50addd0de',
+                }
+            }
             );
             const response = await url.json();
 
