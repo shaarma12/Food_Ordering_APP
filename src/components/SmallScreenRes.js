@@ -5,18 +5,32 @@ import star from "../../images/star.png";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import MenuAccordion from "./MenuAccordion";
-import { useState } from "react";
-import { Coupon_IMG } from "../utils/constant";
+import { useEffect, useState } from "react";
+import { Coupon_IMG, SMALL_MENU_API } from "../utils/constant";
 import TopPicksCarousel from "./TopPicksCarousel";
 import useSmallRes from "../utils/useSmallRes";
 
 const SmallScreenRes = () => {
+    const [cuis, setCuis] = useState(null);
     const { resId } = useParams();
     const [veg, setVeg] = useState(false);
 
     // const [show, setShow] = useState();
     // Creating Custom hook for Fetching Data through API to make this component Single Responsible
-    const cuis = useSmallRes(resId);
+    useEffect(() => {
+        fetchData();
+    }, [])
+    const fetchData = async () => {
+        const url = SMALL_MENU_API + resId;
+        const data = await fetch(url, {
+            headers: {
+                'x-cors-api-key': 'temp_c5e441b9a245e17efe7c1fd50addd0de',
+            }
+        });
+        const response = await data.json();
+        setCuis(response);
+    };
+
     if (cuis === null) {
         return <Shimmer />;
     }
