@@ -19,4 +19,4 @@ const useSmallRes = (resId) => {
     return cuis;
 }
 
-export default useSmallRes
+export default useSmallRes;

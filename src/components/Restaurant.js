@@ -7,9 +7,7 @@ import { useParams } from "react-router-dom";
 import MenuAccordion from "./MenuAccordion";
 import { useState } from "react";
 import { Coupon_IMG } from "../utils/constant";
-import TopPicksCarousel from "./TopPicksCarousel";
 import useSmallRes from "../utils/useSmallRes";
-
 
 const Restaurant = () => {
   const { resId } = useParams();
@@ -34,34 +32,34 @@ const Restaurant = () => {
   return (
     <>
       <div className="flex flex-col items-center mt-20 md:mx-auto md:ml-0 ml-[45rem] z-10">
-        <div className="flex justify-between md:w-[46rem] w-[65rem]">
+        <div className="flex justify-between md:w-[46rem] w-[75rem]">
           <div>
-            <p className="md:text-xl text-6xl font-bold font-sans pb-2">{cuis?.data?.cards[2]?.card?.card?.info?.name}</p>
-            <p className="md:text-sm text-2xl text-slate-500">{cuis?.data?.cards[2]?.card?.card?.info?.cuisines.join(", ")}</p>
-            <p className="md:text-sm text-2xl text-slate-500">
+            <p className="md:text-xl text-7xl font-bold font-sans pb-2">{cuis?.data?.cards[2]?.card?.card?.info?.name}</p>
+            <p className="md:text-sm text-4xl text-slate-500">{cuis?.data?.cards[2]?.card?.card?.info?.cuisines.join(", ")}</p>
+            <p className="md:text-sm text-4xl text-slate-500">
               {cuis?.data?.cards[2]?.card?.card?.info?.areaName}, {cuis?.data?.cards[2]?.card?.card?.info?.sla?.lastMileTravelString}
             </p>
           </div>
           <div className="flex flex-col md:border-[1.5px] border-[2.5px] md:px-0 px-4 rounded-lg items-center">
-            <div className="flex md:border-b-[1px] border-b-[3px] pb-1 pt-1">
-              <img className="md:w-4 w-6 md:h-5 h-7 mr-1 mt-[0.25rem]" src={star} />
-              <h3 className="text-yellow-500 md:text-lg text-3xl font-semibold">
+            <div className="flex md:pb-2 pb-4 pt-1">
+              <img className="md:w-4 w-10 md:h-5 h-11 mr-1 mt-[0.25rem]" src={star} />
+              <h3 className="text-yellow-500 md:text-lg text-5xl font-semibold">
                 {cuis?.data?.cards[2]?.card?.card?.info?.avgRating}
               </h3>
             </div>
-            <div className="plus">
-              <p className="md:text-[0.7rem] text-lg font-semibold text-slate-500 px-1 py-3">
+            <div className="plus md:border-t-[1px] border-t-[3px]">
+              <p className="md:text-[0.7rem] text-2xl font-semibold text-slate-500 px-1 md:py-2 py-5">
                 {cuis?.data?.cards[2]?.card?.card?.info?.totalRatingsString}
               </p>
             </div>
           </div>
         </div>
-        <div className="flex mt-7 flex-col md:w-[47rem] w-[65rem] border-t-2 border-dotted border-gray-300">
+        <div className="flex mt-7 flex-col md:w-[47rem] w-[75rem] border-t-2 border-dotted border-gray-300">
           <div className="flex mt-4">
-            <img className="md:w-5 w-7 md:h-6 h-8 pt-1 mr-2" src={clock} />
-            <p className="mr-4 font-bold md:text-lg text-2xl">{cuis?.data?.cards[2]?.card?.card?.info?.sla?.slaString}</p>
-            <img className="md:w-5 w-7 md:h-6 h-8 mx-2 pt-1" src={rupee} />
-            <p className="font-bold md:text-lg text-2xl">{cuis?.data?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
+            <img className="md:w-5 w-9 md:h-6 h-10 pt-1 mr-2" src={clock} />
+            <p className="mr-4 font-bold md:text-lg text-4xl">{cuis?.data?.cards[2]?.card?.card?.info?.sla?.slaString}</p>
+            <img className="md:w-5 w-9 md:h-6 h-10 mx-2 pt-1" src={rupee} />
+            <p className="font-bold md:text-lg text-4xl">{cuis?.data?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
           </div>
           <div className="flex mt-5 relative right-2 pb-10 overflow-x-scroll no-scrollbar">
             {filterOffer.map((i) => {
@@ -72,31 +70,31 @@ const Restaurant = () => {
             })}
           </div>
           {cuis?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.isPureVeg ? <div className="flex -ml-2 border-b-[1.5px] border-gray-300 pb-4">
-            <img src={Coupon_IMG + cuis?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.vegOnlyDetails?.imageId} className="mr-1" />
-            <p className="md:text-xs text-2xl mt-[0.35rem] font-semibold">PURE VEG</p>
+            <img src={Coupon_IMG + cuis?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card?.vegOnlyDetails?.imageId} className="mr-1 w-12 md:w-7" />
+            <p className="md:text-xs text-3xl mt-[0.35rem] font-semibold">PURE VEG</p>
           </div> : <div className="border-b-[1.5px] border-gray-300">
             <div className="flex mt-2 mb-6">
-              <p className="mr-2 md:text-sm text-2xl font-bold tracking-wider cursor-pointer">
+              <p className="mr-2 md:text-sm text-3xl font-bold tracking-wider cursor-pointer">
                 Veg Only
               </p>
               {veg === false ? (
                 <div
-                  className="md:w-11 w-16 md:h-6 h-8 rounded-md bg-[#D4D5D9] cursor-pointer"
+                  className="md:w-11 w-20 md:h-6 h-10 rounded-md bg-[#D4D5D9] cursor-pointer"
                   onClick={() => {
                     setVeg(true);
                   }}
                 >
-                  <div className=" bg-white md:w-5 w-7 md:h-5 h-7 ml-[0.1rem] mt-[0.13rem] rounded-md"></div>
+                  <div className=" bg-white md:w-5 w-8 md:h-5 h-8 ml-[0.1rem] mt-[0.13rem] rounded-md"></div>
                 </div>
               ) : (
                 <div
-                  className="md:w-11 w-16 md:h-6 h-8 rounded-md bg-[#008000] cursor-pointer"
+                  className="md:w-11 w-20 md:h-6 h-10 rounded-md bg-[#008000] cursor-pointer"
                   onClick={() => {
                     setVeg(false);
                   }}
                 >
                   <img
-                    className="bg-white md:w-5 w-7 md:h-5 h-7 md:ml-[1.4rem] ml-[2.2rem] mt-[0.13rem] rounded-md"
+                    className="bg-white md:w-5 w-8 md:h-5 h-8 md:ml-[1.4rem] ml-[2.8rem] mt-[0.13rem] rounded-md"
                     src="https://www.pngkey.com/png/full/261-2619381_chitr-veg-symbol-svg-veg-and-non-veg.png"
                   />
                 </div>

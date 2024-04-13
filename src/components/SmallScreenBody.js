@@ -79,7 +79,7 @@ const SmallScreenBody = () => {
     // Calling High Order Component
     const DiscountBanner = DiscountInfo(Rescard);
     return (
-        <div className="flex flex-col items-center ml-0">
+        <div className="flex flex-col items-center ml-28">
             {banner.length > 0 && <PriceBanner />}
             {/* <input
           className="m-5 mr-48 p-1"
